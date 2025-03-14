@@ -130,24 +130,28 @@ const About = () => {
   const brevs = ['Azure Virtual Machines', 'Azure Kubernetes Service (AKS)', 'Azure Networking (VNet, NSG, Load Balancers, ExpressRoute, VPN)', 'Azure Storage (Blob, Files, Disks)', 'Azure Active Directory (Azure AD, Entra ID, RBAC, PIM, Conditional Access)', 'Azure Functions', 'Azure App Services', 'Azure Key Vault', 'Azure Security Center', 'Azure Defender for Cloud', 'Azure Policy', 'Terraform', 'Ansible', 'Vagrant', 'Azure Resource Manager (ARM) Templates', 'PowerShell', 'Bash', 'Python', 'Azure DevOps', 'GitHub Actions', 'GitLab CI/CD', 'Jenkins', 'Docker', 'Kubernetes (AKS)', 'Microsoft Defender for Cloud', 'Zero Trust Security', 'Encryption & Key Management']
 
   const certs = [
-    { 
-      name: 'MS-102 - Microsoft 365 Certified: Administrator Expert', 
-      url: 'https://learn.microsoft.com/en-us/users/mouhcinemes/credentials/6ed84d7a5e99e1b3?ref=https%3A%2F%2Fwww.linkedin.com%2F' 
+    {
+      name: 'MS-102 - Microsoft 365 Certified: Administrator Expert',
+      url: 'https://learn.microsoft.com/en-us/users/mouhcinemes/credentials/6ed84d7a5e99e1b3?ref=https%3A%2F%2Fwww.linkedin.com%2F',
+      credentialId: 'https://learn.microsoft.com/en-us/users/mouhcinemes/credentials/6ed84d7a5e99e1b3?ref=https%3A%2F%2Fwww.linkedin.com%2F'
     },
-    { 
-      name: 'AZ-104 - Microsoft Certified: Azure Administrator Associate', 
-      url: 'https://learn.microsoft.com/en-us/users/mouhcinemes/credentials/71f22fd4cdf5cb04?ref=https%3A%2F%2Fwww.linkedin.com%2F' 
+    {
+      name: 'AZ-104 - Microsoft Certified: Azure Administrator Associate',
+      url: 'https://learn.microsoft.com/en-us/users/mouhcinemes/credentials/71f22fd4cdf5cb04?ref=https%3A%2F%2Fwww.linkedin.com%2F',
+      credentialId: 'https://learn.microsoft.com/en-us/users/mouhcinemes/credentials/71f22fd4cdf5cb04?ref=https%3A%2F%2Fwww.linkedin.com%2F'
     },
-    { 
-      name: 'SC-300 - Microsoft Certified: Identity and Access Administrator Associate', 
-      url: 'https://learn.microsoft.com/en-us/users/mouhcinemes/credentials/8f2d4ce8985d6d10?ref=https%3A%2F%2Fwww.linkedin.com%2F' 
+    {
+      name: 'SC-300 - Microsoft Certified: Identity and Access Administrator Associate',
+      url: 'https://learn.microsoft.com/en-us/users/mouhcinemes/credentials/8f2d4ce8985d6d10?ref=https%3A%2F%2Fwww.linkedin.com%2F',
+      credentialId: 'https://learn.microsoft.com/en-us/users/mouhcinemes/credentials/8f2d4ce8985d6d10?ref=https%3A%2F%2Fwww.linkedin.com%2F'
     },
     {
       name: 'Google Cybersecurity Professional',
-      url: 'https://www.coursera.org/account/accomplishments/specialization/TGDR1HGETKXO'
+      url: 'https://www.coursera.org/account/accomplishments/specialization/TGDR1HGETKXO',
+      credentialId: 'https://www.coursera.org/account/accomplishments/specialization/TGDR1HGETKXO'
     }
   ];
-  
+
 
   return (
     <StyledAboutSection id="about" ref={revealContainer}>
@@ -169,34 +173,44 @@ const About = () => {
             <p>
               - Here are a few technologies in Security I’ve been working with:
             </p>
-          
-          <ul className="skills-list">
-            {skills && skills.map((skill, i) => <li key={i}>{skill}</li>)}
-          </ul>
-          <br/>
+
+            <ul className="skills-list">
+              {skills && skills.map((skill, i) => <li key={i}>{skill}</li>)}
+            </ul>
+            <br />
 
             <p>
               - Here are a few technologies in Cloud & Infrastructure I’ve been working with:
             </p>
 
-          <ul className="skills-list">
-            {brevs && brevs.map((brev, i) => <li key={i}>{brev}</li>)}
-          </ul>
-          <br/>
+            <ul className="skills-list">
+              {brevs && brevs.map((brev, i) => <li key={i}>{brev}</li>)}
+            </ul>
+            <br />
 
             <p>
               - Certifications:
             </p>
-          
+
             <ul className="skills-list">
               {certs.map((cert, i) => (
-              <li key={i}>
-              <a href={cert.url} target="_blank" rel="noopener noreferrer">
-              {cert.name}</a>
-              </li>))}
+                <li key={i} className="cert-item">
+                  <a href={cert.url} target="_blank" rel="noopener noreferrer" className="cert-link">
+                    {cert.name}
+                  </a>
+                  <br />
+                  <small className="credential">
+                    📜 <strong>Credential ID:</strong>{" "}
+                    <a href={cert.credentialId} target="_blank" rel="noopener noreferrer" className="credential-link">
+                      View Credential
+                    </a>
+                  </small>
+                </li>
+              ))}
             </ul>
 
-          <br/>
+
+            <br />
 
           </div>
         </StyledText>
