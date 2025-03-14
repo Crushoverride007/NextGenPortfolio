@@ -141,6 +141,10 @@ const About = () => {
     { 
       name: 'SC-300 - Microsoft Certified: Identity and Access Administrator Associate', 
       url: 'https://learn.microsoft.com/en-us/users/mouhcinemes/credentials/8f2d4ce8985d6d10?ref=https%3A%2F%2Fwww.linkedin.com%2F' 
+    },
+    {
+      name: 'Google Cybersecurity Professional',
+      url: 'https://www.coursera.org/account/accomplishments/specialization/TGDR1HGETKXO'
     }
   ];
   
