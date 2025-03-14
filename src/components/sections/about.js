@@ -127,7 +127,7 @@ const About = () => {
 
   const skills = ['Elastic Stack', 'OWASP ZAP', 'MERN Stack', 'Burp suite', 'Kali Linux', 'Hashcat, John the ripper', 'Nmap', 'Metasploit'];
 
-  const brevs = ['Azure Virtual Machines', 'Azure Kubernetes Service (AKS)', 'Azure Networking (VNet, NSG, Load Balancers, ExpressRoute, VPN)', 'Azure Storage (Blob, Files, Disks)', 'Azure Active Directory (Azure AD, Entra ID, RBAC, PIM, Conditional Access)', 'Azure Functions', 'Azure App Services', 'Azure Key Vault', 'Azure Security Center', 'Azure Defender for Cloud', 'Azure Policy', 'Terraform', 'Ansible', 'Vagrant', 'Bicep', 'Azure Resource Manager (ARM) Templates', 'PowerShell', 'Bash', 'Python', 'Azure DevOps', 'GitHub Actions', 'GitLab CI/CD', 'Jenkins', 'Docker', 'Kubernetes (AKS)', 'Helm', 'Microsoft Defender for Cloud', 'Zero Trust Security', 'Encryption & Key Management']
+  const brevs = ['Azure Virtual Machines', 'Azure Kubernetes Service (AKS)', 'Azure Networking (VNet, NSG, Load Balancers, ExpressRoute, VPN)', 'Azure Storage (Blob, Files, Disks)', 'Azure Active Directory (Azure AD, Entra ID, RBAC, PIM, Conditional Access)', 'Azure Functions', 'Azure App Services', 'Azure Key Vault', 'Azure Security Center', 'Azure Defender for Cloud', 'Azure Policy', 'Terraform', 'Ansible', 'Vagrant', 'Azure Resource Manager (ARM) Templates', 'PowerShell', 'Bash', 'Python', 'Azure DevOps', 'GitHub Actions', 'GitLab CI/CD', 'Jenkins', 'Docker', 'Kubernetes (AKS)', 'Microsoft Defender for Cloud', 'Zero Trust Security', 'Encryption & Key Management']
 
   const certs = ['MS-102 - Microsoft 365 Certified: Administrator Expert', 'Az-104 -Microsoft Certified: Azure Administrator Associate', 'SC-300 - Microsoft Certified: Identity and Access Administrator Associate']
 
@@ -155,6 +155,7 @@ const About = () => {
           <ul className="skills-list">
             {skills && skills.map((skill, i) => <li key={i}>{skill}</li>)}
           </ul>
+          <br></br>
 
             <p>
               - Here are a few technologies in Cloud & Infrastructure I’ve been working with:
@@ -163,6 +164,7 @@ const About = () => {
           <ul className="skills-list">
             {brevs && brevs.map((brev, i) => <li key={i}>{brev}</li>)}
           </ul>
+          <br></br>
 
             <p>
               - Certifications:
@@ -171,6 +173,7 @@ const About = () => {
           <ul className="skills-list">
           {certs && certs.map((cert, i) => <li key={i}>{cert}</li>)}
           </ul>
+          <br></br>
 
           </div>
         </StyledText>
