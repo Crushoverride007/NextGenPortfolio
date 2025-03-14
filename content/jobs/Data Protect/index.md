@@ -1,12 +1,14 @@
 ---
 date: '2022-04-01'
-title: 'Cloud Engineer'
+title: 'Security/Cloud Engineer'
 company: 'Data Protect'
 location: 'Casablanca, MA'
-range: 'May 2022 - October 2022'
+range: 'Mars 2021 - Fevr 2023'
 url: 'https://www.dataprotect.ma/'
 ---
 
-- Leveraged SONAR CLOUD in our DevSecOps approach to automate tasks and reports, thereby enhancing security measures and ensuring a streamlined workflow.
-- Successfully coordinated with the team to migrate an admin platform to AZURE-MS Cloud, demonstrating proficiency in managing requirements and cloud-based platforms.
-- Monitored the CI/CD pipeline using MEERCODE in line with an Agile approach, which optimized the development process and ensured successful implementation of changes.
+- Deployment and configuration of an Elastic Stack-based SIEM solution for clients, integrating Filebeat and Winlogbeat agents for comprehensive system and application log collection.
+  
+- Design of custom dashboards for effective anomaly detection and in-depth security event analysis.
+  
+- Implementation of correlation rules for proactive detection of advanced threats, including APTs, malware, and lateral movements, strengthening overall security posture.

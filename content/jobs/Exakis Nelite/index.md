@@ -3,7 +3,7 @@ date: '2023-03-01'
 title: 'Infrastructure & Cloud Consultant'
 company: 'Exakis Nelite'
 location: 'Casablanca, MA'
-range: 'May 2023 - Present'
+range: 'Mars 2023 - Present'
 url: 'https://www.exakis-nelite.com/en/home/'
 ---
 
@@ -21,3 +21,7 @@ url: 'https://www.exakis-nelite.com/en/home/'
   - Set up and established the ManageEngine Endpoint Central solution to optimize endpoint security, patch management, and software deployment for the client, while also deploying and configuring ManageEngine's Patch Manager to ensure timely and efficient patch deployment across client systems.
   - Established centralized control and management of devices (Network devices & VMs & HyperVisors) through ManageEngine OpManager, providing real-time visibility into performance (CPU & RAM usage), availability (DISK usage/utilization), and health.
   - Collaborated with a client to implement ManageEngine Mobile Device Management, facilitating efficient mobile device provisioning, enrollment, tracking, and also policies. To ensure compliance, data protection, and device security.
+
+
+- Pentest
+  - 40% reduction in critical vulnerabilities through penetration testing (OWASP ZAP, Burp Suite) on 3CX, identification and tracking of the remediation of 50+ critical flaws (detected via Nmap and Nessus) by applying security patches, system updates, and configuration hardening, and conducting Red Team APT exercises to optimize threat detection and response.
