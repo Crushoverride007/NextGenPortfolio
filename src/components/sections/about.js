@@ -127,6 +127,8 @@ const About = () => {
 
   const skills = ['Elastic Stack', 'OWASP ZAP', 'MERN Stack', 'Burp suite', 'Kali Linux', 'Hashcat, John the ripper', 'Nmap', 'Metasploit'];
 
+  const certs = ['MS-102 - Microsoft 365 Certified: Administrator Expert', 'Az-104 -Microsoft Certified: Azure Administrator Associate', 'SC-300 - Microsoft Certified: Identity and Access Administrator Associate']
+
   return (
     <StyledAboutSection id="about" ref={revealContainer}>
       <h2 className="numbered-heading">About Me</h2>
@@ -149,6 +151,12 @@ const About = () => {
 
           <ul className="skills-list">
             {skills && skills.map((skill, i) => <li key={i}>{skill}</li>)}
+          </ul>
+
+            <p>Certifications:</p>
+          
+          <ul className="skills-list">
+          {certs && certs.map((cert, i) => <li key={i}>{cert}</li>)}
           </ul>
         </StyledText>
 
