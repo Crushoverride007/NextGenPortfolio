@@ -129,7 +129,21 @@ const About = () => {
 
   const brevs = ['Azure Virtual Machines', 'Azure Kubernetes Service (AKS)', 'Azure Networking (VNet, NSG, Load Balancers, ExpressRoute, VPN)', 'Azure Storage (Blob, Files, Disks)', 'Azure Active Directory (Azure AD, Entra ID, RBAC, PIM, Conditional Access)', 'Azure Functions', 'Azure App Services', 'Azure Key Vault', 'Azure Security Center', 'Azure Defender for Cloud', 'Azure Policy', 'Terraform', 'Ansible', 'Vagrant', 'Azure Resource Manager (ARM) Templates', 'PowerShell', 'Bash', 'Python', 'Azure DevOps', 'GitHub Actions', 'GitLab CI/CD', 'Jenkins', 'Docker', 'Kubernetes (AKS)', 'Microsoft Defender for Cloud', 'Zero Trust Security', 'Encryption & Key Management']
 
-  const certs = ['MS-102 - Microsoft 365 Certified: Administrator Expert', 'Az-104 -Microsoft Certified: Azure Administrator Associate', 'SC-300 - Microsoft Certified: Identity and Access Administrator Associate']
+  const certs = [
+    { 
+      name: 'MS-102 - Microsoft 365 Certified: Administrator Expert', 
+      url: 'https://learn.microsoft.com/en-us/users/mouhcinemes/credentials/6ed84d7a5e99e1b3?ref=https%3A%2F%2Fwww.linkedin.com%2F' 
+    },
+    { 
+      name: 'AZ-104 - Microsoft Certified: Azure Administrator Associate', 
+      url: 'https://learn.microsoft.com/en-us/users/mouhcinemes/credentials/71f22fd4cdf5cb04?ref=https%3A%2F%2Fwww.linkedin.com%2F' 
+    },
+    { 
+      name: 'SC-300 - Microsoft Certified: Identity and Access Administrator Associate', 
+      url: 'https://learn.microsoft.com/en-us/users/mouhcinemes/credentials/8f2d4ce8985d6d10?ref=https%3A%2F%2Fwww.linkedin.com%2F' 
+    }
+  ];
+  
 
   return (
     <StyledAboutSection id="about" ref={revealContainer}>
@@ -155,7 +169,7 @@ const About = () => {
           <ul className="skills-list">
             {skills && skills.map((skill, i) => <li key={i}>{skill}</li>)}
           </ul>
-          <br></br>
+          <br/>
 
             <p>
               - Here are a few technologies in Cloud & Infrastructure I’ve been working with:
@@ -164,16 +178,21 @@ const About = () => {
           <ul className="skills-list">
             {brevs && brevs.map((brev, i) => <li key={i}>{brev}</li>)}
           </ul>
-          <br></br>
+          <br/>
 
             <p>
               - Certifications:
             </p>
           
-          <ul className="skills-list">
-          {certs && certs.map((cert, i) => <li key={i}>{cert}</li>)}
-          </ul>
-          <br></br>
+            <ul className="skills-list">
+              {certs.map((cert, i) => (
+              <li key={i}>
+              <a href={cert.url} target="_blank" rel="noopener noreferrer">
+              {cert.name}</a>
+              </li>))}
+            </ul>
+
+          <br/>
 
           </div>
         </StyledText>
