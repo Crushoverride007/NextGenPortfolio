@@ -71,14 +71,8 @@ const Hero = () => {
         </a>
         {' '} enabled me to delve into the complex world of infrastructure, propelling my understanding of its intricacies to unprecedented levels. More importantly, this experience provided me with innumerable opportunities to leverage cloud technologies, substantially augmenting my knowledge in the realm of cloud infrastructure specifically, and information technology infrastructure at large.
 
-        <iframe
-          src="https://tryhackme.com/api/v2/badges/public-profile?userPublicId=1661945"
-          style={{ border: 'none' }}
-          width="300"
-          height="200"
-          title="TryHackMe Badge"
-        ></iframe>
       </p>
+          <iframe src="https://tryhackme.com/api/v2/badges/public-profile?userPublicId=1661945" style='border:none;'></iframe>
     </>
   );
   const five = (
