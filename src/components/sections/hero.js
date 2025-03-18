@@ -74,11 +74,6 @@ const Hero = () => {
     </>
   );
   const five = (
-    <a href="https://tryhackme.com/p/Crushoverride007">
-        <img src="https://tryhackme.com/api/v2/badges/public-profile?userPublicId=1661945" style='border:none;'></img>
-    </a>
-  );
-  const six = (
     <a
       className="email-link"
       href="#contact">
@@ -87,7 +82,7 @@ const Hero = () => {
   );
 
 
-  const items = [one, two, three, four, five, six];
+  const items = [one, two, three, four, five];
 
   return (
     <StyledHeroSection>
