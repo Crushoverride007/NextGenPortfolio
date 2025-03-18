@@ -72,10 +72,15 @@ const Hero = () => {
         {' '} enabled me to delve into the complex world of infrastructure, propelling my understanding of its intricacies to unprecedented levels. More importantly, this experience provided me with innumerable opportunities to leverage cloud technologies, substantially augmenting my knowledge in the realm of cloud infrastructure specifically, and information technology infrastructure at large.
 
       </p>
-          <iframe src="https://tryhackme.com/api/v2/badges/public-profile?userPublicId=1661945" style='border:none;'></iframe>
     </>
   );
   const five = (
+    <a
+      href="https://tryhackme.com/p/Crushoverride007">
+        <iframe src="https://tryhackme.com/api/v2/badges/public-profile?userPublicId=1661945" style='border:none;'></iframe>
+    </a>
+  );
+  const six = (
     <a
       className="email-link"
       href="#contact">
@@ -83,7 +88,8 @@ const Hero = () => {
     </a>
   );
 
-  const items = [one, two, three, four, five];
+
+  const items = [one, two, three, four, five, six];
 
   return (
     <StyledHeroSection>
