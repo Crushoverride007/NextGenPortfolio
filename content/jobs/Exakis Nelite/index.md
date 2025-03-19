@@ -8,6 +8,8 @@ url: 'https://www.exakis-nelite.com/en/home/'
 ---
 
 - Azure Microsoft
+  
+
   - Successfully exported .ost and .pst files, as well as Outlook online archives, for a migration of 1500+ users to a new tenant in Azure
   - Successfully executed the migration of 220+ users from Google Workspace to Office 365 using Microsoft's Exchange Migration Batches, seamlessly transferring mailboxes while assigning E3 licenses by groups to easily manage the licenses. Additionally, successfully migrated Google Drive content to OneDrive, ensuring a comprehensive transition to the Microsoft ecosystem
   - Implemented and configured Conditional Access policies within Microsoft 365 and Azure Active Directory to enforce granular access controls based on user context, device compliance, and location factors.
@@ -16,6 +18,8 @@ url: 'https://www.exakis-nelite.com/en/home/'
 
 
 - Manage Engine
+
+
   - Successfully integrated and operationalized the ManageEngine ADManager platform, enabling efficient management and maintenance of client's Active Directory infrastructure.
   - Delivered a POC of PAM360 ManageEngine that effectively showcased the core functionalities and benefits such as a streamlined privileged access, robust security controls, comprehensive audit trails (Session recording of RDP & SSH), simplified access provisioning and request workflows whilst implementing the concept of (self-service access request and RBAC), and also password management and rotations to potential clients.
   - Set up and established the ManageEngine Endpoint Central solution to optimize endpoint security, patch management, and software deployment for the client, while also deploying and configuring ManageEngine's Patch Manager to ensure timely and efficient patch deployment across client systems.

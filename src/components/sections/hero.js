@@ -71,8 +71,10 @@ const Hero = () => {
         </a>
         {' '} enabled me to delve into the complex world of infrastructure, propelling my understanding of its intricacies to unprecedented levels. More importantly, this experience provided me with innumerable opportunities to leverage cloud technologies, substantially augmenting my knowledge in the realm of cloud infrastructure specifically, and information technology infrastructure at large.
       </p>
+      <br></br>
     </>
   );
+
   const five = (
     <a
       className="email-link"

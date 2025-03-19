@@ -160,13 +160,18 @@ const About = () => {
       <div className="inner">
         <StyledText>
           <div>
+            <iframe
+              src="https://tryhackme.com/api/v2/badges/public-profile?userPublicId=1661945"
+              style={{ border: 'none' , width: '100%', height: '100px'}}
+              title="TryHackMe Badge"
+            ></iframe>
             <p>
               Hi, I am Mouhcine MESMOUKI Cyber Security Researcher with DevSecOps Orientation, I am an avid enthusiast of the field of computer science. I am always on the lookout for new opportunities to enhance my skills and stay at the forefront of the latest technologies.
             </p>
 
             <p>
               Fast-forward to today, and I’ve had the privilege of working at{' '}
-              <a href="https://www.dataprotect.ma/">Data Protect </a>,{' a cybersecurity company '}
+              <a href="https://www.dataprotect.ma/">Data Protect </a>,{' a cybersecurity firm '}
               <a href="https://www.exakis-nelite.com/en/home/">Exakis Nelite ~ Megallan Partners</a>,{' the first pure-play Microsoft partner in France '}
             </p>
 
