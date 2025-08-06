@@ -171,7 +171,7 @@ const About = () => {
 
             <p>
               Fast-forward to today, and I’ve had the privilege of working at{' '}
-              <a href="https://www.dataprotect.ma/">Data Protect </a>,{' a cybersecurity firm '}
+              <a href="https://jaas.ma/">Jaas </a>,{' a cybersecurity firm '}
               <a href="https://www.exakis-nelite.com/en/home/">Exakis Nelite ~ Megallan Partners</a>,{' the first pure-play Microsoft partner in France '}
             </p>
 
