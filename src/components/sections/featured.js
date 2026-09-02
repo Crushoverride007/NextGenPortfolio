@@ -41,7 +41,7 @@ const StyledProject = styled.li`
 
   &:nth-of-type(odd) {
     .project-content {
-      grid-column: 7 / -1;
+      grid-column: 8 / -1;
       text-align: right;
 
       @media (max-width: 1080px) {
@@ -81,7 +81,7 @@ const StyledProject = styled.li`
       }
     }
     .project-image {
-      grid-column: 1 / 7;
+      grid-column: 1 / 8;
 
       @media (max-width: 1080px) {
         grid-column: 1 / -1;
@@ -93,10 +93,10 @@ const StyledProject = styled.li`
   /* The theme laid this box over the cover. That suited a tinted photo, but
      the designed canvases carry content right to their edges, so any overlap
      hides part of the design. Cover and text now take separate columns, and
-     stack below 1080px where six columns each is too narrow. */
+     stack below 1080px where five columns of text is too narrow. */
   .project-content {
     position: relative;
-    grid-column: 1 / 7;
+    grid-column: 1 / 6;
     grid-row: 1 / -1;
 
     @media (max-width: 1080px) {
@@ -238,7 +238,9 @@ const StyledProject = styled.li`
 
   .project-image {
     ${({ theme }) => theme.mixins.boxShadow};
-    grid-column: 7 / -1;
+    /* Seven columns to the cover, five to the text: the cover keeps the width
+       it had when the theme overlapped them, without the overlap. */
+    grid-column: 6 / -1;
     grid-row: 1 / -1;
     position: relative;
     z-index: 1;
