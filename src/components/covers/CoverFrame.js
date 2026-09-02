@@ -40,6 +40,18 @@ const StyledStage = styled.div`
   font-family: var(--font-mono);
   user-select: none;
 
+  /* The site styles every svg as an icon: width and height 100% and
+     fill: currentColor. CSS outranks SVG presentation attributes, so a cover's
+     ring filled solid with the text colour and a 320px badge stretched to the
+     whole stage. Restore attribute sizing and an unfilled default here; the
+     dots that should be filled carry their own fill attribute and keep it. */
+  svg {
+    width: auto;
+    height: auto;
+    fill: none;
+    vertical-align: top;
+  }
+
   /* Shared vocabulary the covers use for syntax colouring. */
   .g { color: var(--green); }
   .w { color: var(--lightest-slate); }
