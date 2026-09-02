@@ -250,7 +250,10 @@ const StyledProject = styled.li`
     @media (max-width: 768px) {
       grid-column: 1 / -1;
       height: 100%;
-      opacity: 0.25;
+      /* The cover sits behind the copy at this width. 0.25 works for a dark
+         screenshot; a light banner at that strength washes the card out and
+         its lettering reads through the paragraphs. */
+      opacity: 0.12;
     }
 
     a {

@@ -188,6 +188,13 @@ const GlobalStyle = createGlobalStyle`
     font-size: clamp(26px, 5vw, var(--fz-heading));
     white-space: nowrap;
 
+    /* The theme's own headings are short enough to hold one line on a phone.
+       "Some Things I've Deployed & Managed" is not, and nowrap pushed it off
+       the right edge, so let headings wrap on narrow screens. */
+    @media (max-width: 768px) {
+      white-space: normal;
+    }
+
     &:before {
       position: relative;
       bottom: 4px;
