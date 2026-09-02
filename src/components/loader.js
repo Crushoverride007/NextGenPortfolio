@@ -46,23 +46,26 @@ const StyledLoader = styled.div`
     }
   }
 
+  /* This element owns position only. The entrance animates .name-inner, so
+     transform stays free here and centring can be exact - the previous
+     100vw/-50vw arithmetic drifted, since vw counts the scrollbar and shifts
+     again once the loader sets body.hidden. */
   .loader-name {
     position: absolute;
     left: calc(100% + 24px);
-    /* Centred by stretching the box and using flex, not a transform - anime
-       animates translateX here, and a transform would be overwritten. */
-    top: 0;
-    bottom: 0;
-    display: flex;
-    align-items: center;
-    gap: 0.5ch;
-
-    /* Hidden until anime brings it in, after the mark has finished drawing. */
-    opacity: 0;
+    top: 50%;
+    transform: translateY(-50%);
     white-space: nowrap;
     font-family: var(--font-mono);
     font-size: var(--fz-xxl);
     user-select: none;
+
+    .name-inner {
+      display: inline-flex;
+      align-items: baseline;
+      gap: 0.5ch;
+      opacity: 0;
+    }
 
     .first {
       color: var(--lightest-slate);
@@ -74,20 +77,20 @@ const StyledLoader = styled.div`
     }
   }
 
-  /* Narrow screens: the mark stays centred, so a name beside it runs off the
-     right edge. Drop it underneath instead. Centred by spanning the viewport
-     and using justify-content - not translateX, which anime overwrites while
-     sliding the name in. */
+  /* Narrow screens: the mark stays centred, so a name beside it would run off
+     the right edge. Drop it underneath, centred on the mark's own midpoint. */
   @media (max-width: 700px) {
     .loader-name {
       left: 50%;
-      right: auto;
       top: calc(100% + 18px);
-      bottom: auto;
-      width: 100vw;
-      margin-left: -50vw;
-      justify-content: center;
+      transform: translateX(-50%);
       font-size: var(--fz-lg);
+    }
+  }
+
+  @media (max-width: 400px) {
+    .loader-name {
+      font-size: var(--fz-md);
     }
   }
 
@@ -122,8 +125,10 @@ const Loader = ({ finishLoading }) => {
         scale: [0.6, 1],
       })
       // The name arrives once the mark is complete, sliding out from behind it.
+      // Targets the inner span: the wrapper's transform is doing the centring,
+      // and animating transform here would overwrite it.
       .add({
-        targets: '.loader-name',
+        targets: '.loader-name .name-inner',
         duration: 600,
         easing: 'easeOutQuart',
         opacity: [0, 1],
@@ -162,8 +167,10 @@ const Loader = ({ finishLoading }) => {
           <IconLoader />
 
           <div className="loader-name">
-            <span className="first">Mouhcine</span>
-            <span className="last">MESMOUKI</span>
+            <span className="name-inner">
+              <span className="first">Mouhcine</span>
+              <span className="last">MESMOUKI</span>
+            </span>
           </div>
         </div>
       </div>
