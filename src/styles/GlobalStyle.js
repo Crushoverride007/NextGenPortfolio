@@ -12,6 +12,20 @@ const GlobalStyle = createGlobalStyle`
     box-sizing: border-box;
     width: 100%;
     scroll-behavior: smooth;
+
+    /* `overflow-x: hidden` on body alone does not hold on iOS Safari: overflow
+       propagates from html to the viewport, so with only body set the page
+       still scrolls sideways. The job tab list deliberately bleeds 50px past
+       its container so tabs can scroll edge to edge, and that bleed was
+       widening the document. `clip` rather than `hidden` so it does not turn
+       html into a scroll container and break position: sticky. */
+    overflow-x: clip;
+  }
+
+  @supports not (overflow-x: clip) {
+    html {
+      overflow-x: hidden;
+    }
   }
 
   *,
