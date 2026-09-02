@@ -240,7 +240,12 @@ const GlobalStyle = createGlobalStyle`
         width: 200px;
       }
       @media (max-width: 768px) {
-        width: 100%;
+        /* Take whatever the title leaves rather than demanding the full row.
+           At width 100% the rule competed with the text for space and forced
+           even a short heading to wrap into a narrow column. */
+        flex: 1 1 auto;
+        width: auto;
+        min-width: 20px;
       }
       @media (max-width: 600px) {
         margin-left: 10px;
