@@ -3,13 +3,13 @@ date: '2022-06-21'
 title: 'Streaming platform - Gamify '
 github: 'https://github.com/Crushoverride007/gamify'
 tech:
-  - Ci/CD
   - PHP
-  - JavaScript
+  - Docker
   - GitHub Actions
-  - AWS
+  - Azure
+  - CodeQL
 company: 'Aristeia'
 showInProjects: true
 ---
 
-Contributor to spacedrive, an open source cross-platform file manager, powered by a virtual distributed filesystem (VDFS) written in Rust. 
+Streaming platform with a PHP back end, containerised with Docker and shipped by GitHub Actions to Azure, with CodeQL and Sonar analysis in the pipeline. 

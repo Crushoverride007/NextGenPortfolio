@@ -7,9 +7,7 @@ ios: 'https://www.spacedrive.com/'
 android: 'https://www.spacedrive.com/'
 tech:
   - Rust
-  - Typescript
-  - Javascript
-  - SCSS,CSS
+  - TypeScript
   - Tauri
 
 company: 'SpaceDrive'

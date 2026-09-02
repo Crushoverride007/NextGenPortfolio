@@ -1,9 +1,10 @@
 ---
 date: '2023-03-01'
-title: 'Infrastructure & Cloud Consultant'
+title: 'Cloud Infrastructure and DevOps Engineer'
 company: 'Exakis Nelite'
+tab: 'Exakis Nelite'
 location: 'Casablanca, MA'
-range: 'Mars 2023 - Present'
+range: 'March 2023 - February 2025'
 url: 'https://www.exakis-nelite.com/en/home/'
 ---
 

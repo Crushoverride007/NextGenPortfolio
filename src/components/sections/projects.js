@@ -27,13 +27,55 @@ const StyledProjectsSection = styled.section`
   .projects-grid {
     ${({ theme }) => theme.mixins.resetList};
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    /* Six tracks, not three: a card normally spans two of them, giving the
+       same three-per-row layout, but the extra granularity lets a short last
+       row widen its cards to fill the space instead of leaving a hole. */
+    grid-template-columns: repeat(6, 1fr);
     grid-gap: 15px;
     position: relative;
     margin-top: 50px;
 
+    > li {
+      grid-column: span 2;
+    }
+
+    /* One card left over on the final row: let it run the full width. */
+    > li:last-child:nth-child(3n + 1) {
+      grid-column: span 6;
+    }
+
+    /* Two left over: half each, so the row is still flush. */
+    > li:nth-last-child(2):nth-child(3n + 1),
+    > li:last-child:nth-child(3n + 2) {
+      grid-column: span 3;
+    }
+
     @media (max-width: 1080px) {
-      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      grid-template-columns: repeat(4, 1fr);
+
+      > li,
+      > li:last-child:nth-child(3n + 1),
+      > li:nth-last-child(2):nth-child(3n + 1),
+      > li:last-child:nth-child(3n + 2) {
+        grid-column: span 2;
+      }
+
+      /* Two per row here, so the odd one out is the one that goes full width. */
+      > li:last-child:nth-child(odd) {
+        grid-column: span 4;
+      }
+    }
+
+    @media (max-width: 768px) {
+      grid-template-columns: 1fr;
+
+      > li,
+      > li:last-child:nth-child(3n + 1),
+      > li:nth-last-child(2):nth-child(3n + 1),
+      > li:last-child:nth-child(3n + 2),
+      > li:last-child:nth-child(odd) {
+        grid-column: span 1;
+      }
     }
   }
 

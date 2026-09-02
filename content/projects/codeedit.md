@@ -5,7 +5,7 @@ github: 'https://github.com/CodeEditApp/CodeEdit'
 external: 'https://codeedit.app/'
 tech:
   - Swift
-  - Shell
+  - SwiftUI
 company: 'CodeEdit'
 showInProjects: true
 ---

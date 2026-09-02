@@ -141,8 +141,43 @@ const StyledTabPanel = styled.div`
   height: auto;
   padding: 10px 5px;
 
+  /* An entry may open with a lead paragraph before its bullets. fancyList
+     zeroes the list's margin, so without this the first bullet sat hard
+     against the last line of that paragraph. */
+  p {
+    margin: 0 0 20px;
+    color: var(--light-slate);
+    font-size: var(--fz-lg);
+    line-height: 1.5;
+
+    a {
+      ${({ theme }) => theme.mixins.inlineLink};
+    }
+  }
+
   ul {
     ${({ theme }) => theme.mixins.fancyList};
+
+    /* Nested lists. fancyList applies the same 30px indent and full-strength
+       marker at every depth, so a child marker landed exactly where its
+       parent's text began and the two levels read as one. Give the child list
+       room from the line above it, indent it less, and make its marker
+       subordinate so the hierarchy is legible at a glance. */
+    ul {
+      margin: 10px 0 18px;
+      font-size: var(--fz-md);
+
+      li {
+        padding-left: 22px;
+        margin-bottom: 8px;
+        line-height: 1.5;
+
+        &:before {
+          opacity: 0.5;
+          font-size: var(--fz-xs);
+        }
+      }
+    }
   }
 
   h3 {
@@ -176,6 +211,7 @@ const Jobs = () => {
             frontmatter {
               title
               company
+              tab
               location
               range
               url
@@ -250,7 +286,9 @@ const Jobs = () => {
         <StyledTabList role="tablist" aria-label="Job tabs" onKeyDown={e => onKeyDown(e)}>
           {jobsData &&
             jobsData.map(({ node }, i) => {
-              const { company } = node.frontmatter;
+              // `tab` distinguishes the two Jaas roles; the heading still
+              // shows `company`, so it reads "@ Jaas" in both.
+              const { company, tab } = node.frontmatter;
               return (
                 <StyledTabButton
                   key={i}
@@ -262,7 +300,7 @@ const Jobs = () => {
                   tabIndex={activeTabId === i ? '0' : '-1'}
                   aria-selected={activeTabId === i ? true : false}
                   aria-controls={`panel-${i}`}>
-                  <span>{company}</span>
+                  <span>{tab || company}</span>
                 </StyledTabButton>
               );
             })}

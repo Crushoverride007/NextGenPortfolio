@@ -60,6 +60,45 @@ const StyledText = styled.div`
       }
     }
   }
+
+  /* Certificates use a grid rather than columns, the opposite of the skills
+     list above, because here alignment matters more than tight packing: a
+     grid row is as tall as its tallest cell, so entries sit level with each
+     other instead of each column flowing to its own rhythm. */
+  ul.skills-list.certs-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+    gap: 22px 24px;
+    column-width: auto;
+
+    li {
+      /* Stretch to the row height, so the link can be pinned to the bottom. */
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      margin-bottom: 0;
+      line-height: 1.5;
+    }
+
+    .cert-link {
+      color: var(--lightest-slate);
+
+      &:hover,
+      &:focus {
+        color: var(--green);
+      }
+    }
+
+    /* margin-top:auto pushes this to the bottom of a stretched cell, so the
+       links line up across a row however many lines the names above take. */
+    .credential-link {
+      margin-top: auto;
+      padding-top: 8px;
+      color: var(--green);
+      font-size: var(--fz-xxs);
+      white-space: nowrap;
+    }
+  }
 `;
 const StyledPic = styled.div`
   position: relative;
@@ -144,6 +183,25 @@ const About = () => {
 
   const brevs = ['Azure Virtual Machines', 'Azure Kubernetes Service (AKS)', 'Azure Networking (VNet, NSG, Load Balancers, ExpressRoute, VPN)', 'Azure Storage (Blob, Files, Disks)', 'Azure Active Directory (Azure AD, Entra ID, RBAC, PIM, Conditional Access)', 'Azure Functions', 'Azure App Services', 'Azure Key Vault', 'Azure Security Center', 'Azure Defender for Cloud', 'Azure Policy', 'Terraform', 'Ansible', 'Vagrant', 'Azure Resource Manager (ARM) Templates', 'PowerShell', 'Bash', 'Python', 'Azure DevOps', 'GitHub Actions', 'GitLab CI/CD', 'Jenkins', 'Docker', 'Kubernetes (AKS)', 'Microsoft Defender for Cloud', 'Zero Trust Security', 'Encryption & Key Management']
 
+  // Platform and application-security work, mostly from Kliper. Kept separate
+  // from the two lists above: i18n and WebAuthn are neither pentest tooling
+  // nor cloud infrastructure. CI/CD and zero trust are omitted as the lists
+  // above already carry them.
+  const platform = [
+    'Multi-tenant architecture',
+    'Row-level tenant isolation',
+    'OIDC / SAML',
+    'WebAuthn & passkeys',
+    'RAG & LLM agents',
+    'Prompt caching',
+    'Disaster recovery (PITR, RTO/RPO)',
+    'Security hardening',
+    'PCI DSS 4.0.1',
+    'SOC 2 readiness',
+    'Internationalisation (i18n)',
+    'Observability',
+  ];
+
   const certs = [
     {
       name: 'MS-102 - Microsoft 365 Certified: Administrator Expert',
@@ -209,22 +267,31 @@ const About = () => {
             <br />
 
             <p className="list-heading">
-              Certifications
+              Platform &amp; application security I&rsquo;ve been working with
             </p>
 
             <ul className="skills-list">
+              {platform && platform.map((item, i) => <li key={i}>{item}</li>)}
+            </ul>
+            <br />
+
+            <p className="list-heading">
+              Certifications
+            </p>
+
+            <ul className="skills-list certs-list">
               {certs.map((cert, i) => (
                 <li key={i} className="cert-item">
                   <a href={cert.url} target="_blank" rel="noopener noreferrer" className="cert-link">
                     {cert.name}
                   </a>
-                  <br />
-                  <small className="credential">
-                    📜 <strong>Credential ID:</strong>{" "}
-                    <a href={cert.credentialId} target="_blank" rel="noopener noreferrer" className="credential-link">
-                      View Credential
-                    </a>
-                  </small>
+                  <a
+                    href={cert.credentialId}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="credential-link">
+                    📜 View Credential
+                  </a>
                 </li>
               ))}
             </ul>
