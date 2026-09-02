@@ -245,6 +245,14 @@ const StyledProject = styled.li`
     position: relative;
     z-index: 1;
 
+    /* The grid centres the cover on the whole text column, but that column is
+       bottom-heavy - overline and title above, tag list and links below - so
+       the description box sits above the midpoint and the cover reads as low.
+       Lift it to sit level with the description. */
+    @media (min-width: 1081px) {
+      transform: translateY(-60px);
+    }
+
     @media (max-width: 1080px) {
       grid-column: 1 / -1;
       grid-row: 1;
