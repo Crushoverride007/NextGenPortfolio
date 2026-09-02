@@ -1,7 +1,7 @@
 ---
 date: '3'
 title: 'Automated Penetration Testing'
-cover: './cover-pentest.png'
+interactive: 'pentest'
 github: 'https://github.com/Crushoverride007/automated-pentest-suite'
 cta: 'https://gov-dyn.space/'
 tech:

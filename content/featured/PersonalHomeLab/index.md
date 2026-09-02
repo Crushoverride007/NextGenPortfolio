@@ -1,7 +1,7 @@
 ---
 date: '5'
 title: 'Personal Home Lab'
-cover: './cover-homelab.png'
+interactive: 'homelab'
 external: 'https://gov-dyn.space'
 tech:
   - LLMs

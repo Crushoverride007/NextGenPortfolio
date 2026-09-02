@@ -1,7 +1,7 @@
 ---
 date: '0'
 title: 'Kliper — PCI DSS Compliance Platform'
-cover: './kliper.png'
+interactive: 'kliper'
 external: 'https://kliper.dev/'
 tech:
   - TypeScript

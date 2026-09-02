@@ -1,6 +1,5 @@
 import React, { useEffect, useRef } from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
-import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 import styled from 'styled-components';
 import sr from '@utils/sr';
 import { srConfig } from '@config';
@@ -264,22 +263,6 @@ const StyledProject = styled.li`
       background: var(--navy);
     }
 
-    a.cover-box {
-      &:focus-visible {
-        outline: 2px solid var(--green);
-        outline-offset: 3px;
-      }
-    }
-
-    .img {
-      width: 100%;
-      height: 100%;
-      border-radius: var(--border-radius);
-
-      img {
-        object-fit: cover;
-      }
-    }
   }
 `;
 
@@ -294,11 +277,6 @@ const Featured = () => {
           node {
             frontmatter {
               title
-              cover {
-                childImageSharp {
-                  gatsbyImageData(width: 1400, placeholder: BLURRED, formats: [AUTO, WEBP, AVIF])
-                }
-              }
               interactive
               tech
               github
@@ -336,9 +314,10 @@ const Featured = () => {
         {featuredProjects &&
           featuredProjects.map(({ node }, i) => {
             const { frontmatter, html } = node;
-            const { external, title, tech, github, cover, cta, interactive } = frontmatter;
-            const image = cover ? getImage(cover) : null;
-            const Interactive = interactive ? covers[interactive] : null;
+            const { external, title, tech, github, cta, interactive } = frontmatter;
+            // Every cover is a native canvas now. An unknown key renders an
+            // empty box rather than crashing the whole section.
+            const Cover = covers[interactive];
 
             return (
               <StyledProject key={i} ref={el => (revealProjects.current[i] = el)}>
@@ -384,16 +363,7 @@ const Featured = () => {
                 </div>
 
                 <div className="project-image">
-                  {Interactive ? (
-                    // Interactive covers take clicks themselves, so no link wrapper.
-                    <div className="cover-box">
-                      <Interactive />
-                    </div>
-                  ) : (
-                    <a className="cover-box" href={external ? external : github ? github : '#'}>
-                      <GatsbyImage image={image} alt={title} className="img" />
-                    </a>
-                  )}
+                  <div className="cover-box">{Cover ? <Cover /> : null}</div>
                 </div>
               </StyledProject>
             );

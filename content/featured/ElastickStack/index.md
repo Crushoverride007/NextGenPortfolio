@@ -1,7 +1,7 @@
 ---
 date: '2'
 title: 'Elastick Stack'
-cover: './cover-elastic.png'
+interactive: 'elastic'
 github: 'https://github.com/Crushoverride007/'
 tech:
   - Elasticsearch

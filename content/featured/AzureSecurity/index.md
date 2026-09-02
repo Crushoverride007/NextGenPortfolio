@@ -1,7 +1,7 @@
 ---
 date: '1'
 title: 'Azure Security & Identity Management'
-cover: './cover-azure.png'
+interactive: 'azure'
 github: 'https://github.com/Crushoverride007/Crushoverride007'
 tech:
   - Azure AD
