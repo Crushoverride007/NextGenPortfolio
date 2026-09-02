@@ -74,17 +74,26 @@ const StyledLoader = styled.div`
     }
   }
 
-  @media (max-width: 768px) {
+  /* Narrow screens: the mark stays centred, so a name beside it runs off the
+     right edge. Drop it underneath instead. Centred by spanning the viewport
+     and using justify-content - not translateX, which anime overwrites while
+     sliding the name in. */
+  @media (max-width: 700px) {
     .loader-name {
-      left: calc(100% + 16px);
+      left: 50%;
+      right: auto;
+      top: calc(100% + 18px);
+      bottom: auto;
+      width: 100vw;
+      margin-left: -50vw;
+      justify-content: center;
       font-size: var(--fz-lg);
     }
   }
 
-  @media (max-width: 480px) {
+  @media (max-width: 400px) {
     .loader-name {
-      left: calc(100% + 12px);
-      font-size: var(--fz-sm);
+      font-size: var(--fz-md);
     }
   }
 `;
