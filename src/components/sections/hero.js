@@ -28,7 +28,10 @@ const StyledHeroSection = styled.section`
        the page having failed to load rather than as breathing room. */
     height: auto;
     min-height: auto;
-    padding-top: calc(var(--nav-height) + 20px);
+    /* The nav is 100px and carries a blur and shadow past its own box, so
+       padding equal to its height left the first line sitting under that
+       haze. Clear it properly. */
+    padding-top: calc(var(--nav-height) + 40px);
     padding-bottom: 60px;
   }
 
