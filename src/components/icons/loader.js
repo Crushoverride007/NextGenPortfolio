@@ -4,13 +4,8 @@ const IconLoader = () => (
   <svg id="logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
     <title>Loader Logo</title>
     <g>
-      <g id="B" transform="translate(11.000000, 5.000000)">
-        <path
-          d=""
-          fill="currentColor"
-        />
-      </g>
       <path
+        id="hex"
         stroke="currentColor"
         strokeWidth="5"
         strokeLinecap="round"
@@ -21,6 +16,18 @@ const IconLoader = () => (
                   L 50, 95
                   L 89, 73
                   L 89, 28 z"
+      />
+      <path
+        id="M"
+        stroke="currentColor"
+        strokeWidth="5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        d="M 33, 66
+                  L 33, 36
+                  L 50, 55
+                  L 67, 36
+                  L 67, 66"
       />
     </g>
   </svg>

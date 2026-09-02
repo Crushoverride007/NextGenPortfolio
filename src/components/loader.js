@@ -31,6 +31,8 @@ const StyledLoader = styled.div`
       user-select: none;
       #M {
         opacity: 0;
+        transform-box: fill-box;
+        transform-origin: center;
       }
     }
   }
@@ -46,17 +48,18 @@ const Loader = ({ finishLoading }) => {
 
     loader
       .add({
-        targets: '#logo path',
+        targets: '#logo #hex',
         delay: 300,
         duration: 1500,
         easing: 'easeInOutQuart',
         strokeDashoffset: [anime.setDashoffset, 0],
       })
       .add({
-        targets: '#logo #B',
+        targets: '#logo #M',
         duration: 700,
         easing: 'easeInOutQuart',
         opacity: 1,
+        scale: [0.6, 1],
       })
       .add({
         targets: '#logo',

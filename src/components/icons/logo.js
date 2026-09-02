@@ -14,8 +14,17 @@ const IconLogo = () => (
           points="39 0 0 22 0 67 39 90 78 68 78 23"
         />
         <path
-          d="M39,2 L39,88"
-          fill="currentColor"
+          id="M"
+          stroke="currentColor"
+          strokeWidth="5"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          fill="none"
+          d="M 22, 61
+                    L 22, 31
+                    L 39, 50
+                    L 56, 31
+                    L 56, 61"
         />
       </g>
     </g>
