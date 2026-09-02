@@ -1,7 +1,7 @@
 ---
 date: '4'
 title: 'TryHackMe Security Labs & Challenges'
-cover: './tryhackme.png'
+cover: './cover-thm.png'
 external: 'https://tryhackme.com/p/Crushoverride007'
 tech:
   - Kali Linux

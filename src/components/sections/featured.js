@@ -5,6 +5,7 @@ import styled from 'styled-components';
 import sr from '@utils/sr';
 import { srConfig } from '@config';
 import { Icon } from '@components/icons';
+import covers from '@components/covers';
 import { usePrefersReducedMotion } from '@hooks';
 
 const StyledProjectsGrid = styled.ul`
@@ -49,11 +50,12 @@ const StyledProject = styled.li`
       }
       @media (max-width: 768px) {
         grid-column: 1 / -1;
-        padding: 40px 40px 30px;
+        grid-row: 2;
+        padding: 30px 30px 25px;
         text-align: left;
       }
       @media (max-width: 480px) {
-        padding: 25px 25px 20px;
+        padding: 25px 20px 20px;
       }
     }
     .project-tech-list {
@@ -87,6 +89,7 @@ const StyledProject = styled.li`
 
       @media (max-width: 768px) {
         grid-column: 1 / -1;
+        grid-row: 1;
       }
     }
   }
@@ -100,18 +103,17 @@ const StyledProject = styled.li`
       grid-column: 1 / 9;
     }
 
+    /* Phones: the cover used to sit behind this copy at low opacity. Now it is
+       a real card in the row above, so the text just flows beneath it. */
     @media (max-width: 768px) {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      height: 100%;
       grid-column: 1 / -1;
-      padding: 40px 40px 30px;
+      grid-row: 2;
+      padding: 30px 30px 25px;
       z-index: 5;
     }
 
     @media (max-width: 480px) {
-      padding: 30px 25px 20px;
+      padding: 25px 20px 20px;
     }
   }
 
@@ -249,58 +251,38 @@ const StyledProject = styled.li`
 
     @media (max-width: 768px) {
       grid-column: 1 / -1;
-      height: 100%;
-      /* The cover sits behind the copy at this width. 0.25 works for a dark
-         screenshot; a light banner at that strength washes the card out and
-         its lettering reads through the paragraphs. */
-      opacity: 0.12;
+      grid-row: 1;
+      /* Full strength: it is a card above the text now, not a backdrop. */
+      opacity: 1;
     }
 
-    a {
+    /* Every cover - static PNG or interactive component - renders in this
+       box, so all eight share one aspect ratio, radius and shadow. The old
+       navy tint and grayscale filter are gone: the covers are authored on the
+       site's own palette and are meant to be seen as designed. */
+    .cover-box {
+      display: block;
       width: 100%;
-      height: 100%;
-      background-color: var(--green);
+      aspect-ratio: 1400 / 875;
       border-radius: var(--border-radius);
-      vertical-align: middle;
+      overflow: hidden;
+      background: var(--navy);
+    }
 
-      &:hover,
-      &:focus {
-        background: transparent;
-        outline: 0;
-
-        &:before,
-        .img {
-          background: transparent;
-          filter: none;
-        }
-      }
-
-      &:before {
-        content: '';
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        z-index: 3;
-        transition: var(--transition);
-        background-color: var(--navy);
-        mix-blend-mode: screen;
+    a.cover-box {
+      &:focus-visible {
+        outline: 2px solid var(--green);
+        outline-offset: 3px;
       }
     }
 
     .img {
+      width: 100%;
+      height: 100%;
       border-radius: var(--border-radius);
-      mix-blend-mode: multiply;
-      filter: grayscale(100%) contrast(1) brightness(90%);
 
-      @media (max-width: 768px) {
+      img {
         object-fit: cover;
-        width: auto;
-        height: 100%;
-        filter: grayscale(100%) contrast(1) brightness(50%);
       }
     }
   }
@@ -319,9 +301,10 @@ const Featured = () => {
               title
               cover {
                 childImageSharp {
-                  gatsbyImageData(width: 700, placeholder: BLURRED, formats: [AUTO, WEBP, AVIF])
+                  gatsbyImageData(width: 1400, placeholder: BLURRED, formats: [AUTO, WEBP, AVIF])
                 }
               }
+              interactive
               tech
               github
               external
@@ -358,8 +341,9 @@ const Featured = () => {
         {featuredProjects &&
           featuredProjects.map(({ node }, i) => {
             const { frontmatter, html } = node;
-            const { external, title, tech, github, cover, cta } = frontmatter;
-            const image = getImage(cover);
+            const { external, title, tech, github, cover, cta, interactive } = frontmatter;
+            const image = cover ? getImage(cover) : null;
+            const Interactive = interactive ? covers[interactive] : null;
 
             return (
               <StyledProject key={i} ref={el => (revealProjects.current[i] = el)}>
@@ -405,9 +389,16 @@ const Featured = () => {
                 </div>
 
                 <div className="project-image">
-                  <a href={external ? external : github ? github : '#'}>
-                    <GatsbyImage image={image} alt={title} className="img" />
-                  </a>
+                  {Interactive ? (
+                    // Interactive covers take clicks themselves, so no link wrapper.
+                    <div className="cover-box">
+                      <Interactive />
+                    </div>
+                  ) : (
+                    <a className="cover-box" href={external ? external : github ? github : '#'}>
+                      <GatsbyImage image={image} alt={title} className="img" />
+                    </a>
+                  )}
                 </div>
               </StyledProject>
             );

@@ -1,7 +1,7 @@
 ---
 date: '6'
 title: 'Infrastructure as Code'
-cover: './iac.png'
+interactive: 'iac'
 github: 'https://github.com/Crushoverride007/'
 external: 'https://registry.terraform.io/modules/crushoverride007'
 tech:

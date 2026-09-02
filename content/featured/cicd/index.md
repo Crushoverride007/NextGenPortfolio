@@ -1,7 +1,7 @@
 ---
 date: '7'
 title: 'Automated Security CI/CD Pipeline'
-cover: './cicd.png'
+interactive: 'cicd'
 external: 'https://gitlab.com/crushoverride007/security-pipeline'
 tech:
   - GitLab CI/CD
