@@ -45,13 +45,22 @@ module.exports = {
     darkNavy: '#020c1b',
   },
 
-  srConfig: (delay = 200, viewFactor = 0.25) => ({
+  // `opacity` is the starting value, not the target. At 0 a section is
+  // invisible until ScrollReveal fires, so anything below the fold looks
+  // missing while you wait - and if a reveal never fires, the page reads as
+  // broken. Starting dim means content ahead of you is always there, greyed
+  // out, and simply brightens as you reach it.
+  //
+  // viewFactor is how much of an element must be in view before it reveals.
+  // A quarter meant tall sections on a phone brightened late; a tenth starts
+  // them as they come over the edge.
+  srConfig: (delay = 200, viewFactor = 0.1) => ({
     origin: 'bottom',
     distance: '20px',
     duration: 500,
     delay,
     rotate: { x: 0, y: 0, z: 0 },
-    opacity: 0,
+    opacity: 0.12,
     scale: 1,
     easing: 'cubic-bezier(0.645, 0.045, 0.355, 1)',
     mobile: true,
