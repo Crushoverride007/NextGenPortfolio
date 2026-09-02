@@ -1,0 +1,13 @@
+# Pins the build toolchain. Without this Netlify uses its current default Node,
+# which this stack cannot install on: Gatsby 3.4 pulls native modules (sharp via
+# prebuild-install) that publish no prebuilt binaries for modern Node, so they
+# fall back to compiling and fail. The repo's own CI targets Node 14; 16 is the
+# newest release these dependencies still have prebuilds for.
+[build]
+  command = "gatsby build"
+  publish = "public"
+
+[build.environment]
+  NODE_VERSION = "16"
+  # Gatsby 3's tree predates npm 7's strict peer resolution.
+  NPM_FLAGS = "--legacy-peer-deps"
