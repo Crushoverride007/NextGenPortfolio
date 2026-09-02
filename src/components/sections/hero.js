@@ -23,10 +23,13 @@ const StyledHeroSection = styled.section`
      directions and the first line sat underneath the header. Let the section
      grow instead, and reserve the nav's height. */
   @media (max-width: 768px) {
+    /* No min-height here. Reserving a full screen leaves a screenful of empty
+       space below the button whenever the content is shorter, which reads as
+       the page having failed to load rather than as breathing room. */
     height: auto;
-    min-height: 100vh;
-    padding-top: var(--nav-height);
-    padding-bottom: 40px;
+    min-height: auto;
+    padding-top: calc(var(--nav-height) + 20px);
+    padding-bottom: 60px;
   }
 
   h1 {
