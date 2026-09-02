@@ -32,18 +32,17 @@ const StyledTabList = styled.div`
   margin: 0;
   list-style: none;
 
+  /* The theme bled this strip 50px past its container on each side so the
+     tabs could scroll edge to edge. Nothing clips that, so it widened the
+     document and the whole page scrolled sideways on a phone. Keep the
+     horizontal scrolling, drop the bleed. */
   @media (max-width: 600px) {
     display: flex;
     overflow-x: auto;
-    width: calc(100% + 100px);
-    padding-left: 50px;
-    margin-left: -50px;
+    width: 100%;
+    padding-left: 0;
+    margin-left: 0;
     margin-bottom: 30px;
-  }
-  @media (max-width: 480px) {
-    width: calc(100% + 50px);
-    padding-left: 25px;
-    margin-left: -25px;
   }
 
   li {
