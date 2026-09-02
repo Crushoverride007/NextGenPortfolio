@@ -40,18 +40,15 @@ const StyledProject = styled.li`
   }
 
   &:nth-of-type(odd) {
-    .project-content {
+    .project-header,
+    .project-body,
+    .project-footer {
       grid-column: 8 / -1;
       text-align: right;
 
       @media (max-width: 1080px) {
         grid-column: 1 / -1;
-        grid-row: 2;
-        padding: 30px 30px 25px;
         text-align: left;
-      }
-      @media (max-width: 480px) {
-        padding: 25px 20px 20px;
       }
     }
     .project-tech-list {
@@ -94,20 +91,56 @@ const StyledProject = styled.li`
      the designed canvases carry content right to their edges, so any overlap
      hides part of the design. Cover and text now take separate columns, and
      stack below 1080px where five columns of text is too narrow. */
-  .project-content {
-    position: relative;
+  /* The text column is three grid rows - header, description, footer - so
+     the cover can be centred on the description alone. A single column item
+     centred the cover on the whole column, which is bottom-heavy, and no fixed
+     offset could correct that because description lengths differ per card. */
+  .project-header,
+  .project-body,
+  .project-footer {
     grid-column: 1 / 6;
-    grid-row: 1 / -1;
+    z-index: 5;
 
     @media (max-width: 1080px) {
       grid-column: 1 / -1;
-      grid-row: 2;
-      padding: 30px 30px 25px;
-      z-index: 5;
+      padding-left: 30px;
+      padding-right: 30px;
     }
-
     @media (max-width: 480px) {
-      padding: 25px 20px 20px;
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+  }
+  .project-header {
+    grid-row: 1;
+    align-self: end;
+
+    @media (max-width: 1080px) {
+      grid-row: 2;
+      padding-top: 30px;
+    }
+    @media (max-width: 480px) {
+      padding-top: 25px;
+    }
+  }
+  .project-body {
+    position: relative;
+    grid-row: 2;
+
+    @media (max-width: 1080px) {
+      grid-row: 3;
+    }
+  }
+  .project-footer {
+    grid-row: 3;
+    align-self: start;
+
+    @media (max-width: 1080px) {
+      grid-row: 4;
+      padding-bottom: 25px;
+    }
+    @media (max-width: 480px) {
+      padding-bottom: 20px;
     }
   }
 
@@ -241,17 +274,12 @@ const StyledProject = styled.li`
     /* Seven columns to the cover, five to the text: the cover keeps the width
        it had when the theme overlapped them, without the overlap. */
     grid-column: 6 / -1;
-    grid-row: 1 / -1;
+    /* Row 2 is the description. If the cover is taller, the row grows to fit
+       it and the description centres inside; either way the two line up. */
+    grid-row: 2;
+    align-self: center;
     position: relative;
     z-index: 1;
-
-    /* The grid centres the cover on the whole text column, but that column is
-       bottom-heavy - overline and title above, tag list and links below - so
-       the description box sits above the midpoint and the cover reads as low.
-       Lift it to sit level with the description. */
-    @media (min-width: 1081px) {
-      transform: translateY(-60px);
-    }
 
     @media (max-width: 1080px) {
       grid-column: 1 / -1;
@@ -331,20 +359,23 @@ const Featured = () => {
 
             return (
               <StyledProject key={i} ref={el => (revealProjects.current[i] = el)}>
-                <div className="project-content">
-                  <div>
-                    <p className="project-overline">Featured Project</p>
+                <div className="project-header">
+                  <p className="project-overline">Featured Project</p>
 
-                    <h3 className="project-title">
-                      <a href={external}>{title}</a>
-                    </h3>
+                  <h3 className="project-title">
+                    <a href={external}>{title}</a>
+                  </h3>
+                </div>
 
-                    <div
-                      className="project-description"
-                      dangerouslySetInnerHTML={{ __html: html }}
-                    />
+                <div className="project-body">
+                  <div
+                    className="project-description"
+                    dangerouslySetInnerHTML={{ __html: html }}
+                  />
+                </div>
 
-                    {tech && tech.length && (
+                <div className="project-footer">
+                  {tech && tech.length && (
                       <ul className="project-tech-list">
                         {tech.map((tech, i) => (
                           <li key={i}>{tech}</li>
@@ -368,7 +399,6 @@ const Featured = () => {
                           <Icon name="External" />
                         </a>
                       )}
-                    </div>
                   </div>
                 </div>
 
