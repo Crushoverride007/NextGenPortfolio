@@ -46,9 +46,6 @@ const StyledProject = styled.li`
       text-align: right;
 
       @media (max-width: 1080px) {
-        grid-column: 5 / -1;
-      }
-      @media (max-width: 768px) {
         grid-column: 1 / -1;
         grid-row: 2;
         padding: 30px 30px 25px;
@@ -85,27 +82,25 @@ const StyledProject = styled.li`
       }
     }
     .project-image {
-      grid-column: 1 / 8;
+      grid-column: 1 / 7;
 
-      @media (max-width: 768px) {
+      @media (max-width: 1080px) {
         grid-column: 1 / -1;
         grid-row: 1;
       }
     }
   }
 
+  /* The theme laid this box over the cover. That suited a tinted photo, but
+     the designed canvases carry content right to their edges, so any overlap
+     hides part of the design. Cover and text now take separate columns, and
+     stack below 1080px where six columns each is too narrow. */
   .project-content {
     position: relative;
     grid-column: 1 / 7;
     grid-row: 1 / -1;
 
     @media (max-width: 1080px) {
-      grid-column: 1 / 9;
-    }
-
-    /* Phones: the cover used to sit behind this copy at low opacity. Now it is
-       a real card in the row above, so the text just flows beneath it. */
-    @media (max-width: 768px) {
       grid-column: 1 / -1;
       grid-row: 2;
       padding: 30px 30px 25px;
@@ -244,12 +239,12 @@ const StyledProject = styled.li`
 
   .project-image {
     ${({ theme }) => theme.mixins.boxShadow};
-    grid-column: 6 / -1;
+    grid-column: 7 / -1;
     grid-row: 1 / -1;
     position: relative;
     z-index: 1;
 
-    @media (max-width: 768px) {
+    @media (max-width: 1080px) {
       grid-column: 1 / -1;
       grid-row: 1;
       /* Full strength: it is a card above the text now, not a backdrop. */
