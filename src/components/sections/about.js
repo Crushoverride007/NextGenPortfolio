@@ -19,16 +19,31 @@ const StyledAboutSection = styled.section`
   }
 `;
 const StyledText = styled.div`
+  .list-heading {
+    margin: 30px 0 0;
+    color: var(--green);
+    font-family: var(--font-mono);
+    font-size: var(--fz-sm);
+    line-height: 1.4;
+  }
+
   ul.skills-list {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(140px, 200px));
-    grid-gap: 0 10px;
+    /* Columns rather than grid. Grid makes every row as tall as its tallest
+       cell, so one entry that wraps - "Azure Networking (VNet, NSG, Load
+       Balancers, ExpressRoute, VPN)" - left a hole beside its short
+       neighbour. Columns flow independently, so entries pack tightly however
+       long they are. The width is a minimum: the browser fits as many columns
+       as it can, which also removes the need for a mobile breakpoint here. */
+    column-width: 200px;
+    column-gap: 20px;
     padding: 0;
     margin: 20px 0 0 0;
-    overflow: hidden;
     list-style: none;
 
     li {
+      /* Never let an entry split across two columns. */
+      break-inside: avoid;
+      page-break-inside: avoid;
       position: relative;
       margin-bottom: 10px;
       padding-left: 20px;
@@ -175,8 +190,8 @@ const About = () => {
               <a href="https://www.exakis-nelite.com/en/home/">Exakis Nelite ~ Megallan Partners</a>,{' the first pure-play Microsoft partner in France '}
             </p>
 
-            <p>
-              - Here are a few technologies in Security I’ve been working with:
+            <p className="list-heading">
+              Technologies in Security I’ve been working with
             </p>
 
             <ul className="skills-list">
@@ -184,8 +199,8 @@ const About = () => {
             </ul>
             <br />
 
-            <p>
-              - Here are a few technologies in Cloud & Infrastructure I’ve been working with:
+            <p className="list-heading">
+              Technologies in Cloud &amp; Infrastructure I’ve been working with
             </p>
 
             <ul className="skills-list">
@@ -193,8 +208,8 @@ const About = () => {
             </ul>
             <br />
 
-            <p>
-              - Certifications:
+            <p className="list-heading">
+              Certifications
             </p>
 
             <ul className="skills-list">
