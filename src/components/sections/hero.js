@@ -17,6 +17,18 @@ const StyledHeroSection = styled.section`
     padding-top: var(--nav-height);
   }
 
+  /* Phones matched neither arm of the query above - they are tall, and wider
+     than 360px - so the section kept a fixed 100vh with no clearance for the
+     fixed nav. Content taller than the viewport then overflowed in both
+     directions and the first line sat underneath the header. Let the section
+     grow instead, and reserve the nav's height. */
+  @media (max-width: 768px) {
+    height: auto;
+    min-height: 100vh;
+    padding-top: var(--nav-height);
+    padding-bottom: 40px;
+  }
+
   h1 {
     margin: 0 0 30px 4px;
     color: var(--green);
