@@ -1,5 +1,6 @@
 import React from 'react';
-import CoverFrame from './CoverFrame';
+import PropTypes from 'prop-types';
+import CoverFrame, { cardNumber } from './CoverFrame';
 
 const SKILLS = [
   ['Web · OWASP Top 10', 100],
@@ -15,11 +16,11 @@ const stat = { display: 'flex', flexDirection: 'column', alignItems: 'center' };
 const statN = { color: 'var(--lightest-slate)', fontSize: 34, fontWeight: 600 };
 const statL = { color: 'var(--slate)', fontSize: 13 };
 
-const ThmCover = () => (
+const ThmCover = ({ number }) => (
   <CoverFrame label="TryHackMe: top 4% global rank, 70+ rooms, 15+ badges, 6 paths, with skill progress bars">
     <div className="glow" style={{ background: 'radial-gradient(ellipse 50% 60% at 30% 50%, rgba(100,255,218,.08), transparent 70%)' }} />
     <div className="hd">
-      <span className="n">05.</span>
+      <span className="n">{cardNumber(number)}</span>
       <span className="t">Hands-on Security Labs</span>
     </div>
     <div className="sub">TryHackMe</div>
@@ -59,5 +60,14 @@ const ThmCover = () => (
     <div className="ft-r">tryhackme.com</div>
   </CoverFrame>
 );
+
+ThmCover.propTypes = {
+  /** Position in the featured section; drives the card number. */
+  number: PropTypes.number,
+};
+
+ThmCover.defaultProps = {
+  number: 0,
+};
 
 export default ThmCover;

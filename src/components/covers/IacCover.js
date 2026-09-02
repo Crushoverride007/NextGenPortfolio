@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import CoverFrame from './CoverFrame';
+import CoverFrame, { cardNumber } from './CoverFrame';
 
 /* Line helper: indent in stage pixels, then [class, text] pairs. */
 const L = (pad, ...parts) => ({ pad, parts });
@@ -189,7 +189,7 @@ const StyledIac = styled.div`
   }
 `;
 
-const IacCover = ({ cycle }) => {
+const IacCover = ({ cycle, number }) => {
   const [current, setCurrent] = useState(0);
 
   useEffect(() => {
@@ -207,7 +207,7 @@ const IacCover = ({ cycle }) => {
       <StyledIac>
         <div className="glow" />
         <div className="hd">
-          <span className="n">06.</span>
+          <span className="n">{cardNumber(number)}</span>
           <span className="t">Hardened Azure, as Code</span>
         </div>
         <div className="sub">Terraform · Ansible · CIS</div>
@@ -255,6 +255,12 @@ const IacCover = ({ cycle }) => {
 IacCover.propTypes = {
   /** Seconds between automatic stage changes; omit to leave it click-driven. */
   cycle: PropTypes.number,
+  /** Position in the featured section; drives the card number. */
+  number: PropTypes.number,
+};
+
+IacCover.defaultProps = {
+  number: 0,
 };
 
 export default IacCover;

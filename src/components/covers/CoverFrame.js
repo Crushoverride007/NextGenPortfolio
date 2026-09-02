@@ -13,6 +13,11 @@ import styled from 'styled-components';
 export const STAGE_W = 1400;
 export const STAGE_H = 875;
 
+/* Card numbers come from the card's position in the section, not from the
+   cover itself, so they can never drift from the display order. Zero-based
+   and two digits: the flagship reads 00. */
+export const cardNumber = index => `${String(index).padStart(2, '0')}.`;
+
 const StyledFrame = styled.div`
   position: relative;
   width: 100%;

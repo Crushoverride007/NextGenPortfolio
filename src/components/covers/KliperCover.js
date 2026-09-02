@@ -1,5 +1,6 @@
 import React from 'react';
-import CoverFrame from './CoverFrame';
+import PropTypes from 'prop-types';
+import CoverFrame, { cardNumber } from './CoverFrame';
 
 const dot = { width: 12, height: 12, borderRadius: '50%', background: 'var(--lightest-navy)' };
 const navItem = { color: 'var(--slate)' };
@@ -17,11 +18,11 @@ const ROWS = [
   ['12.3.1', 'Targeted risk analysis documented', '—', 'Gap · medium', false],
 ];
 
-const KliperCover = () => (
+const KliperCover = ({ number }) => (
   <CoverFrame label="Kliper: a Report on Compliance workspace showing controls, gaps, evidence, a requirements table and a Cortex assistant note">
     <div className="glow" style={{ background: 'radial-gradient(ellipse 60% 50% at 50% 60%, rgba(100,255,218,.08), transparent 70%)' }} />
     <div className="hd">
-      <span className="n">00.</span>
+      <span className="n">{cardNumber(number)}</span>
       <span className="t">Kliper — PCI DSS assessments, end to end</span>
     </div>
     <div className="sub">founder · sole engineer · 2025→</div>
@@ -98,5 +99,14 @@ const KliperCover = () => (
     <div className="ft-r">Next.js · Node · PostgreSQL · Cloudflare</div>
   </CoverFrame>
 );
+
+KliperCover.propTypes = {
+  /** Position in the featured section; drives the card number. */
+  number: PropTypes.number,
+};
+
+KliperCover.defaultProps = {
+  number: 0,
+};
 
 export default KliperCover;

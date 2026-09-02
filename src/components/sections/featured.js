@@ -365,7 +365,7 @@ const Featured = () => {
                 </div>
 
                 <div className="project-image">
-                  <div className="cover-box">{Cover ? <Cover /> : null}</div>
+                  <div className="cover-box">{Cover ? <Cover number={i} /> : null}</div>
                 </div>
               </StyledProject>
             );

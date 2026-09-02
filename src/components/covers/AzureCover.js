@@ -1,5 +1,6 @@
 import React from 'react';
-import CoverFrame, { STAGE_W, STAGE_H } from './CoverFrame';
+import PropTypes from 'prop-types';
+import CoverFrame, { STAGE_W, STAGE_H, cardNumber } from './CoverFrame';
 
 const box = {
   position: 'absolute',
@@ -9,11 +10,11 @@ const box = {
   boxSizing: 'border-box',
 };
 
-const AzureCover = () => (
+const AzureCover = ({ number }) => (
   <CoverFrame label="Zero Trust identity flow: on-prem AD synced to Entra ID Conditional Access, Sentinel above, PowerShell below, out to Microsoft 365">
     <div className="glow" style={{ background: 'radial-gradient(ellipse 50% 60% at 50% 50%, rgba(100,255,218,.08), transparent 70%)' }} />
     <div className="hd">
-      <span className="n">02.</span>
+      <span className="n">{cardNumber(number)}</span>
       <span className="t">Zero Trust Identity Flow</span>
     </div>
     <div className="sub">1,500+ users · 0 incidents</div>
@@ -68,5 +69,14 @@ const AzureCover = () => (
     <div className="ft-r">99.9% compliance</div>
   </CoverFrame>
 );
+
+AzureCover.propTypes = {
+  /** Position in the featured section; drives the card number. */
+  number: PropTypes.number,
+};
+
+AzureCover.defaultProps = {
+  number: 0,
+};
 
 export default AzureCover;

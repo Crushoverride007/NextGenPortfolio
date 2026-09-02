@@ -1,5 +1,6 @@
 import React from 'react';
-import CoverFrame, { STAGE_W, STAGE_H } from './CoverFrame';
+import PropTypes from 'prop-types';
+import CoverFrame, { STAGE_W, STAGE_H, cardNumber } from './CoverFrame';
 
 const box = {
   position: 'absolute',
@@ -18,11 +19,11 @@ const vlanMeta = { color: 'var(--slate)', fontSize: 14 };
 const chips = { position: 'absolute', top: 730, width: 300, display: 'flex', gap: 10, flexWrap: 'wrap' };
 const chip = { border: '1px solid var(--lightest-navy)', color: 'var(--slate)', fontSize: 13, padding: '5px 10px' };
 
-const HomeLabCover = () => (
+const HomeLabCover = ({ number }) => (
   <CoverFrame label="Home lab topology: WAN into pfSense, then three VLANs for management, an AD lab and an attack network">
     <div className="glow" style={{ background: 'radial-gradient(ellipse 60% 50% at 50% 45%, rgba(100,255,218,.08), transparent 70%)' }} />
     <div className="hd">
-      <span className="n">01.</span>
+      <span className="n">{cardNumber(number)}</span>
       <span className="t">Home Lab Topology</span>
     </div>
     <div className="sub">10.0.0.0/16 · Proxmox VE</div>
@@ -88,5 +89,14 @@ const HomeLabCover = () => (
     <div className="ft-r">segmented · monitored · logged</div>
   </CoverFrame>
 );
+
+HomeLabCover.propTypes = {
+  /** Position in the featured section; drives the card number. */
+  number: PropTypes.number,
+};
+
+HomeLabCover.defaultProps = {
+  number: 0,
+};
 
 export default HomeLabCover;

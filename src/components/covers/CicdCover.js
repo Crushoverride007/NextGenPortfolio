@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import CoverFrame, { STAGE_W, STAGE_H } from './CoverFrame';
+import CoverFrame, { STAGE_W, STAGE_H, cardNumber } from './CoverFrame';
 
 const STAGES = [
   {
@@ -143,7 +143,7 @@ const StyledCicd = styled.div`
   }
 `;
 
-const CicdCover = ({ cycle }) => {
+const CicdCover = ({ cycle, number }) => {
   const [current, setCurrent] = useState(4);
 
   useEffect(() => {
@@ -162,7 +162,7 @@ const CicdCover = ({ cycle }) => {
       <StyledCicd>
         <div className="glow" />
         <div className="hd">
-          <span className="n">07.</span>
+          <span className="n">{cardNumber(number)}</span>
           <span className="t">Security-Gated Pipeline</span>
         </div>
         <div className="sub">GitLab CI · GitHub Actions</div>
@@ -233,6 +233,12 @@ const CicdCover = ({ cycle }) => {
 CicdCover.propTypes = {
   /** Seconds between automatic stage changes; omit to leave it click-driven. */
   cycle: PropTypes.number,
+  /** Position in the featured section; drives the card number. */
+  number: PropTypes.number,
+};
+
+CicdCover.defaultProps = {
+  number: 0,
 };
 
 export default CicdCover;

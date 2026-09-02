@@ -1,5 +1,6 @@
 import React from 'react';
-import CoverFrame, { STAGE_W, STAGE_H } from './CoverFrame';
+import PropTypes from 'prop-types';
+import CoverFrame, { STAGE_W, STAGE_H, cardNumber } from './CoverFrame';
 
 const box = {
   position: 'absolute',
@@ -13,11 +14,11 @@ const beat = { ...box, left: 40, width: 260, height: 60, alignItems: 'center', j
 const beatName = { color: 'var(--lightest-slate)', fontSize: 17, fontWeight: 600 };
 const beatMeta = { color: 'var(--slate)', fontSize: 13 };
 
-const ElasticCover = () => (
+const ElasticCover = ({ number }) => (
   <CoverFrame label="SIEM log pipeline: Filebeat, Winlogbeat and Packetbeat into Logstash, Elasticsearch and Kibana, with a brute-force detection rule">
     <div className="glow" style={{ background: 'radial-gradient(ellipse 60% 50% at 50% 50%, rgba(100,255,218,.08), transparent 70%)' }} />
     <div className="hd">
-      <span className="n">03.</span>
+      <span className="n">{cardNumber(number)}</span>
       <span className="t">SIEM Log Pipeline</span>
     </div>
     <div className="sub">Elastic Stack · SOC</div>
@@ -73,5 +74,14 @@ const ElasticCover = () => (
     <div className="ft-r">real-time threat monitoring</div>
   </CoverFrame>
 );
+
+ElasticCover.propTypes = {
+  /** Position in the featured section; drives the card number. */
+  number: PropTypes.number,
+};
+
+ElasticCover.defaultProps = {
+  number: 0,
+};
 
 export default ElasticCover;
