@@ -104,6 +104,29 @@ const GlobalStyle = createGlobalStyle`
     }
   }
 
+  /* Dot grid in the gutters, in the spirit of Cloudflare's marketing pages:
+     a fixed layer of faint dots behind the page, covered by the content
+     column's solid panel so the dots only show outside it. */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    background-image: radial-gradient(var(--lightest-navy) 1.2px, transparent 1.8px);
+    background-size: 26px 26px;
+    background-position: 13px 13px;
+    opacity: 0.85;
+  }
+
+  #content {
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    background-color: var(--navy);
+    box-shadow: -1px 0 0 var(--lightest-navy), 1px 0 0 var(--lightest-navy);
+  }
+
   #root {
     min-height: 100vh;
     display: grid;
