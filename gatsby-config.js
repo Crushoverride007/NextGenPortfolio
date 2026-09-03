@@ -29,7 +29,10 @@ module.exports = {
         icon: 'src/images/logo.png',
       },
     },
-    `gatsby-plugin-offline`,
+    // Unregisters the service worker that gatsby-plugin-offline used to install:
+    // after a deploy, phones holding the old worker got an app shell whose script
+    // files no longer existed and showed a white page.
+    `gatsby-plugin-remove-serviceworker`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
