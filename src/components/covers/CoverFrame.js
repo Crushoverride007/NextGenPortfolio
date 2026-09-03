@@ -39,6 +39,14 @@ const StyledStage = styled.div`
   color: var(--lightest-slate);
   font-family: var(--font-mono);
   user-select: none;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+
+  /* Code panels are sized for the stage's own font metrics; if a device
+     substitutes a wider monospace face, clip rather than spill. */
+  .code {
+    overflow: hidden;
+  }
 
   /* The site styles every svg as an icon: width and height 100% and
      fill: currentColor. CSS outranks SVG presentation attributes, so a cover's

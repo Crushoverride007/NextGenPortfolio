@@ -10,6 +10,11 @@ const GlobalStyle = createGlobalStyle`
 
   html {
     box-sizing: border-box;
+    /* iOS Safari inflates text in blocks wider than the viewport. The featured
+       covers are 1400px stages scaled down with a transform, so without this
+       their code lines grow taller on iPhones and spill out of their panels. */
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
     width: 100%;
     scroll-behavior: smooth;
   }
