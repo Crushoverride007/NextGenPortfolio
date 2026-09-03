@@ -19,6 +19,18 @@ const StyledAboutSection = styled.section`
   }
 `;
 const StyledText = styled.div`
+  .thm-badge {
+    display: inline-block;
+    margin-bottom: 20px;
+    line-height: 0;
+
+    img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 12px;
+    }
+  }
+
   .list-heading {
     margin: 30px 0 0;
     color: var(--green);
@@ -233,11 +245,17 @@ const About = () => {
       <div className="inner">
         <StyledText>
           <div>
-            <iframe
-              src="https://tryhackme.com/api/v2/badges/public-profile?userPublicId=1661945"
-              style={{ border: 'none' , width: '100%', height: '100px'}}
-              title="TryHackMe Badge"
-            ></iframe>
+            {/* Rendered from TryHackMe's badge markup at 4x. The live badge is an
+                HTML page whose avatar reference is a broken relative path, so
+                framing it showed an empty circle; this carries the real avatar. */}
+            <a
+              href="https://tryhackme.com/p/Crushoverride007"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="thm-badge"
+              aria-label="TryHackMe profile">
+              <img src="/tryhackme-badge.png" width="327" height="84" alt="TryHackMe badge: Crushoverride007, rank 0x9" />
+            </a>
             <p>
               Hi, I am Mouhcine MESMOUKI Cyber Security Researcher with DevSecOps Orientation, I am an avid enthusiast of the field of computer science. I am always on the lookout for new opportunities to enhance my skills and stay at the forefront of the latest technologies.
             </p>
