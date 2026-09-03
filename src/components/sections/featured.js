@@ -160,23 +160,12 @@ const StyledProject = styled.li`
       margin: 0 0 20px;
     }
 
+    /* The theme used to stretch an invisible pseudo-element from this link
+       over the whole card on phones, so a tap anywhere opened the project.
+       That overlay sat above the cover and swallowed every tap meant for the
+       interactive canvases. The link icons in the footer do that job now. */
     @media (max-width: 768px) {
       color: var(--white);
-
-      a {
-        position: static;
-
-        &:before {
-          content: '';
-          display: block;
-          position: absolute;
-          z-index: 0;
-          width: 100%;
-          height: 100%;
-          top: 0;
-          left: 0;
-        }
-      }
     }
   }
 
