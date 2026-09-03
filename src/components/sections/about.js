@@ -254,7 +254,7 @@ const About = () => {
               rel="noopener noreferrer"
               className="thm-badge"
               aria-label="TryHackMe profile">
-              <img src="/tryhackme-badge.png" width="327" height="84" alt="TryHackMe badge: Crushoverride007, rank 0x9" />
+              <img src="/tryhackme-badge.png" width="327" height="84" alt="TryHackMe stats: Crushoverride007, rank 0x9, 260-day best streak" />
             </a>
             <p>
               Hi, I am Mouhcine MESMOUKI Cyber Security Researcher with DevSecOps Orientation, I am an avid enthusiast of the field of computer science. I am always on the lookout for new opportunities to enhance my skills and stay at the forefront of the latest technologies.
