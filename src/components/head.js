@@ -8,6 +8,7 @@ import CalibreRegularWoff2 from '@fonts/Calibre/Calibre-Regular.woff2';
 import CalibreMediumWoff2 from '@fonts/Calibre/Calibre-Medium.woff2';
 import CalibreSemiboldWoff2 from '@fonts/Calibre/Calibre-Semibold.woff2';
 import SFMonoRegularWoff2 from '@fonts/SFMono/SFMono-Regular.woff2';
+import SFMonoSemiboldWoff2 from '@fonts/SFMono/SFMono-Semibold.woff2';
 
 // https://www.gatsbyjs.com/docs/add-seo-component/
 
@@ -22,6 +23,7 @@ const PRELOADED_FONTS = [
   CalibreMediumWoff2,
   CalibreSemiboldWoff2,
   SFMonoRegularWoff2,
+  SFMonoSemiboldWoff2,
 ];
 
 const Head = ({ title, description, image }) => {

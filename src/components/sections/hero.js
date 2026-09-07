@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import styled from 'styled-components';
-import { navDelay, loaderDelay } from '@utils';
+import { navDelay } from '@utils';
 import { usePrefersReducedMotion } from '@hooks';
 
 const StyledHeroSection = styled.section`
@@ -62,6 +61,21 @@ const StyledHeroSection = styled.section`
     ${({ theme }) => theme.mixins.bigButton};
     margin-top: 50px;
   }
+
+  /* These used to mount only after navDelay, so the hero stood empty for a
+     second and then grew, pushing every section below it down ~590px on a
+     phone - the whole of the page's 0.46 layout shift. They are always in the
+     layout now; only opacity and transform animate, which never reflows. */
+  .hero-item {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 300ms var(--easing), transform 300ms var(--easing);
+  }
+
+  .hero-item.is-in {
+    opacity: 1;
+    transform: translateY(0);
+  }
 `;
 
 const Hero = () => {
@@ -113,14 +127,16 @@ const Hero = () => {
           ))}
         </>
       ) : (
-        <TransitionGroup component={null}>
-          {isMounted &&
-            items.map((item, i) => (
-              <CSSTransition key={i} classNames="fadeup" timeout={loaderDelay}>
-                <div style={{ transitionDelay: `${i + 1}00ms` }}>{item}</div>
-              </CSSTransition>
-            ))}
-        </TransitionGroup>
+        <>
+          {items.map((item, i) => (
+            <div
+              key={i}
+              className={`hero-item${isMounted ? ' is-in' : ''}`}
+              style={{ transitionDelay: `${i + 1}00ms` }}>
+              {item}
+            </div>
+          ))}
+        </>
       )}
     </StyledHeroSection>
   );
