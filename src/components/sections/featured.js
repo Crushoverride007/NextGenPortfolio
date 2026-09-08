@@ -375,10 +375,9 @@ const Featured = () => {
                     )}
 
                     <div className="project-links">
+                      {/* "Learn More" was on Lighthouse's generic-link-text list,
+                          and that audit reads the visible text, not the aria-label. */}
                       {cta && (
-                        {/* "Learn More" is on Lighthouse's generic-link-text
-                            list, and the audit reads the visible text rather
-                            than the aria-label. */}
                         <a href={cta} aria-label={`Visit the ${title} site`} className="cta">
                           Visit the site
                         </a>
