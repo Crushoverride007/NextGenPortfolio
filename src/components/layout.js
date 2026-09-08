@@ -54,14 +54,18 @@ const Layout = ({ children, location }) => {
         <ThemeProvider theme={theme}>
           <GlobalStyle />
 
-          <a className="skip-to-content" href="#content">
-            Skip to Content
-          </a>
-
           {isLoading && isHome ? (
             <Loader finishLoading={() => setIsLoading(false)} />
           ) : (
             <StyledContent>
+              {/* Lives with its target rather than above the loader branch:
+                  while the loader is up there is no #content to skip to, and a
+                  skip link pointing at nothing is exactly what Lighthouse
+                  flags. */}
+              <a className="skip-to-content" href="#content">
+                Skip to Content
+              </a>
+
               <Nav isHome={isHome} />
               <Social isHome={isHome} />
               <Email isHome={isHome} />
