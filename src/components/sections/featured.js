@@ -351,8 +351,10 @@ const Featured = () => {
                 <div className="project-header">
                   <p className="project-overline">Featured Project</p>
 
+                  {/* Without a link there should be no anchor at all: an <a>
+                      with no href is not crawlable and is not a real control. */}
                   <h3 className="project-title">
-                    <a href={external}>{title}</a>
+                    {external ? <a href={external}>{title}</a> : title}
                   </h3>
                 </div>
 
@@ -374,7 +376,7 @@ const Featured = () => {
 
                     <div className="project-links">
                       {cta && (
-                        <a href={cta} aria-label="Course Link" className="cta">
+                        <a href={cta} aria-label={`Learn more about ${title}`} className="cta">
                           Learn More
                         </a>
                       )}

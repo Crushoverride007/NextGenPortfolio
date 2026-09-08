@@ -94,6 +94,10 @@ const StyledText = styled.div`
 
     .cert-link {
       color: var(--lightest-slate);
+      /* 24px is the minimum comfortable touch target; these were 20px. */
+      display: inline-block;
+      min-height: 24px;
+      line-height: 24px;
 
       &:hover,
       &:focus {

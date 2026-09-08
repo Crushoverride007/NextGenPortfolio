@@ -19,6 +19,10 @@ const StyledProjectsSection = styled.section`
   .archive-link {
     font-family: var(--font-mono);
     font-size: var(--fz-sm);
+    /* 24px is the minimum comfortable touch target; the text alone was 19px. */
+    display: inline-block;
+    min-height: 24px;
+    line-height: 24px;
     &:after {
       bottom: 0.1em;
     }
@@ -284,9 +288,13 @@ const Projects = () => {
           </div>
 
           <h3 className="project-title">
-            <a href={external} target="_blank" rel="noreferrer">
-              {title}
-            </a>
+            {external ? (
+              <a href={external} target="_blank" rel="noreferrer">
+                {title}
+              </a>
+            ) : (
+              title
+            )}
           </h3>
 
           <div className="project-description" dangerouslySetInnerHTML={{ __html: html }} />

@@ -1,6 +1,6 @@
 ---
 date: '2'
-title: 'Elastick Stack'
+title: 'Elastic Stack'
 interactive: 'elastic'
 github: 'https://github.com/Crushoverride007/'
 tech:
