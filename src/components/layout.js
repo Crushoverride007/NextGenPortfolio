@@ -66,7 +66,11 @@ const Layout = ({ children, location }) => {
               <Social isHome={isHome} />
               <Email isHome={isHome} />
 
-              <div id="content">
+              {/* tabIndex makes this a valid target for the skip link above:
+                  without it the link scrolls the page but keyboard focus stays
+                  behind, which is what Lighthouse flags as an unfocusable skip
+                  link. -1 keeps it out of the normal tab order. */}
+              <div id="content" tabIndex={-1}>
                 {children}
                 <Footer />
               </div>

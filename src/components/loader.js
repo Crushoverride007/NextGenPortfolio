@@ -112,14 +112,14 @@ const Loader = ({ finishLoading }) => {
     loader
       .add({
         targets: '#logo #hex',
-        delay: 300,
-        duration: 1500,
+        delay: 150,
+        duration: 1000,
         easing: 'easeInOutQuart',
         strokeDashoffset: [anime.setDashoffset, 0],
       })
       .add({
         targets: '#logo #M',
-        duration: 700,
+        duration: 500,
         easing: 'easeInOutQuart',
         opacity: 1,
         scale: [0.6, 1],
@@ -129,7 +129,7 @@ const Loader = ({ finishLoading }) => {
       // and animating transform here would overwrite it.
       .add({
         targets: '.loader-name .name-inner',
-        duration: 600,
+        duration: 500,
         easing: 'easeOutQuart',
         opacity: [0, 1],
         translateX: [-12, 0],
@@ -137,7 +137,7 @@ const Loader = ({ finishLoading }) => {
       // Mark and name leave together, so the lockup reads as one object.
       .add({
         targets: '.loader-inner',
-        delay: 600,
+        delay: 400,
         duration: 300,
         easing: 'easeInOutQuart',
         opacity: 0,

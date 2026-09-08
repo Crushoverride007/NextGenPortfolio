@@ -3412,9 +3412,9 @@ caniuse-api@^3.0.0:
     lodash.uniq "^4.5.0"
 
 caniuse-lite@^1.0.0, caniuse-lite@^1.0.30001125, caniuse-lite@^1.0.30001196, caniuse-lite@^1.0.30001219:
-  version "1.0.30001282"
-  resolved "https://registry.npmjs.org/caniuse-lite/-/caniuse-lite-1.0.30001282.tgz"
-  integrity sha512-YhF/hG6nqBEllymSIjLtR2iWDDnChvhnVJqp+vloyt2tEHFG1yBR+ac2B/rOw0qOK0m0lEXU2dv4E/sMk5P9Kg==
+  version "1.0.30001810"
+  resolved "https://registry.npmjs.org/caniuse-lite/-/caniuse-lite-1.0.30001810.tgz"
+  integrity sha512-TITQPUkaz+aVk5GL6NhOdwk1aEaNTSDPsGFWrTuhKGtjTF70jL/Oht2W4c6rXUe5fu7Ie19VIahAXHIIiWWNeg==
 
 caw@^2.0.0, caw@^2.0.1:
   version "2.0.1"
@@ -6059,14 +6059,6 @@ gatsby-page-utils@^1.4.0:
     glob "^7.1.6"
     lodash "^4.17.21"
     micromatch "^4.0.2"
-
-gatsby-plugin-google-analytics@^3.4.0:
-  version "3.4.0"
-  resolved "https://registry.npmjs.org/gatsby-plugin-google-analytics/-/gatsby-plugin-google-analytics-3.4.0.tgz"
-  integrity sha512-dH/ZHPo8fzQq5DoFVR6oMd1n3xnsmvvy+CTzzaWCNxF5DGikTJFuIvUm3nLchBuRkfIlj2UbDkJfuPGwmfkTqw==
-  dependencies:
-    "@babel/runtime" "^7.12.5"
-    minimatch "3.0.4"
 
 gatsby-plugin-image@^1.4.0:
   version "1.4.0"

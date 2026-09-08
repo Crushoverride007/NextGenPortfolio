@@ -132,6 +132,12 @@ const GlobalStyle = createGlobalStyle`
     box-shadow: -1px 0 0 var(--lightest-navy), 1px 0 0 var(--lightest-navy);
   }
 
+  /* Focused only as the skip link's destination, never by tabbing, so it
+     should not draw a focus ring around the whole page. */
+  #content:focus {
+    outline: none;
+  }
+
   #root {
     min-height: 100vh;
     display: grid;
