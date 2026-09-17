@@ -97,11 +97,17 @@ const Hero = () => {
   const four = (
     <>
       <p>
-        My most recent tenure with {' '} 
-        <a href="https://www.exakis-nelite.com/en/home/" target="_blank" rel="noreferrer">
-          Exakis Nelite 
+        I'm a Cloud Security Engineer at{' '}
+        <a href="https://jaas.ma/" target="_blank" rel="noreferrer">
+          Jaas
         </a>
-        {' '} enabled me to delve into the complex world of infrastructure, propelling my understanding of its intricacies to unprecedented levels. More importantly, this experience provided me with innumerable opportunities to leverage cloud technologies, substantially augmenting my knowledge in the realm of cloud infrastructure specifically, and information technology infrastructure at large.
+        , working across Azure identity, Zero Trust and DevSecOps. Alongside that I founded
+        Kortlabs, where I build{' '}
+        <a href="https://kliper.dev/" target="_blank" rel="noreferrer">
+          Kliper
+        </a>
+        {' '}&mdash; a PCI DSS v4.0.1 platform that QSA firms use to run assessments and produce
+        the Report on Compliance, taken from zero to production in ten months.
       </p>
       <br></br>
     </>

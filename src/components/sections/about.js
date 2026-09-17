@@ -268,13 +268,16 @@ const About = () => {
               />
             </a>
             <p>
-              Hi, I am Mouhcine MESMOUKI Cyber Security Researcher with DevSecOps Orientation, I am an avid enthusiast of the field of computer science. I am always on the lookout for new opportunities to enhance my skills and stay at the forefront of the latest technologies.
+              Hi, I’m Mouhcine MESMOUKI — a Cyber Security Researcher with a DevSecOps orientation, and an avid enthusiast of the field of computer science. I am always on the lookout for new opportunities to enhance my skills and stay at the forefront of the latest technologies.
             </p>
 
             <p>
-              Fast-forward to today, and I’ve had the privilege of working at{' '}
-              <a href="https://jaas.ma/">Jaas </a>,{' a cybersecurity firm '}
-              <a href="https://www.exakis-nelite.com/en/home/">Exakis Nelite ~ Megallan Partners</a>,{' the first pure-play Microsoft partner in France '}
+              Fast-forward to today: I’m a Cloud Security Engineer at{' '}
+              <a href="https://jaas.ma/">Jaas</a>, and the founder of Kortlabs, where I build{' '}
+              <a href="https://kliper.dev/">Kliper</a> — a multi-tenant platform for PCI DSS
+              v4.0.1 compliance. Before that I spent two years at{' '}
+              <a href="https://www.exakis-nelite.com/en/home/">Exakis Nelite ~ Magellan Partners</a>,
+              the first pure-play Microsoft partner in France, on cloud infrastructure and DevOps.
             </p>
 
             <p className="list-heading">
