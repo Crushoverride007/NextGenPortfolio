@@ -79,14 +79,17 @@ const StyledText = styled.div`
      other instead of each column flowing to its own rhythm. */
   ul.skills-list.certs-list {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
     gap: 22px 24px;
     column-width: auto;
 
     li {
-      /* Stretch to the row height, so the link can be pinned to the bottom. */
+      /* Badge on the left, name and credential link stacked beside it, so the
+         artwork can be large enough to actually read. */
       display: flex;
-      flex-direction: column;
+      flex-direction: row;
+      align-items: flex-start;
+      gap: 14px;
       height: 100%;
       margin-bottom: 0;
       line-height: 1.5;
@@ -101,16 +104,18 @@ const StyledText = styled.div`
 
     /* Badge and name share the first line; the name wraps under itself rather
        than under the badge, which keeps multi-line titles readable. */
-    .cert-head {
+    .cert-body {
       display: flex;
-      align-items: flex-start;
-      gap: 10px;
+      flex-direction: column;
+      flex: 1;
+      min-width: 0;
+      height: 100%;
     }
 
     .cert-badge {
       flex: none;
-      width: 44px;
-      height: 44px;
+      width: 80px;
+      height: 80px;
       object-fit: contain;
       /* The theme blurs img[alt=""] as a prompt to write alt text. These are
          genuinely decorative - the certificate name is right beside them - so
@@ -118,7 +123,7 @@ const StyledText = styled.div`
       filter: none;
       /* Issuer artwork varies in trim; a little optical nudge lines the
          badges up with the first line of text. */
-      margin-top: -8px;
+      margin-top: -6px;
     }
 
     .cert-link {
@@ -353,10 +358,10 @@ const About = () => {
             <ul className="skills-list certs-list">
               {certs.map((cert, i) => (
                 <li key={i} className="cert-item">
-                  <div className="cert-head">
-                    {cert.badge && (
-                      <img className="cert-badge" src={cert.badge} alt="" width="44" height="44" loading="lazy" />
-                    )}
+                  {cert.badge && (
+                    <img className="cert-badge" src={cert.badge} alt="" width="80" height="80" loading="lazy" />
+                  )}
+                  <div className="cert-body">
                     {cert.url ? (
                       <a href={cert.url} target="_blank" rel="noopener noreferrer" className="cert-link">
                         {cert.name}
@@ -364,16 +369,16 @@ const About = () => {
                     ) : (
                       <span className="cert-link">{cert.name}</span>
                     )}
+                    {cert.credentialId && (
+                      <a
+                        href={cert.credentialId}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="credential-link">
+                        📜 View Credential
+                      </a>
+                    )}
                   </div>
-                  {cert.credentialId && (
-                    <a
-                      href={cert.credentialId}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="credential-link">
-                      📜 View Credential
-                    </a>
-                  )}
                 </li>
               ))}
             </ul>
