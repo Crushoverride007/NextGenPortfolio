@@ -124,6 +124,15 @@ const StyledText = styled.div`
       /* Issuer artwork varies in trim; a little optical nudge lines the
          badges up with the first line of text. */
       margin-top: -6px;
+
+      /* A bare vendor logo has no frame of its own, so it looks unfinished
+         beside real badge artwork. Give it one. */
+      &.is-plain {
+        padding: 20px;
+        border: 1px solid var(--lightest-navy);
+        border-radius: 16px;
+        background-color: var(--light-navy);
+      }
     }
 
     .cert-link {
@@ -280,6 +289,9 @@ const About = () => {
     {
       name: 'Google Cybersecurity Professional',
       badge: '/badges/google.svg',
+      // A vendor logo, not issuer badge artwork - it gets a tile so it does
+      // not read as a bare glyph beside the real badges.
+      plainBadge: true,
       url: 'https://www.coursera.org/account/accomplishments/specialization/TGDR1HGETKXO',
       credentialId: 'https://www.coursera.org/account/accomplishments/specialization/TGDR1HGETKXO'
     }
@@ -359,7 +371,14 @@ const About = () => {
               {certs.map((cert, i) => (
                 <li key={i} className="cert-item">
                   {cert.badge && (
-                    <img className="cert-badge" src={cert.badge} alt="" width="96" height="96" loading="lazy" />
+                    <img
+                      className={`cert-badge${cert.plainBadge ? ' is-plain' : ''}`}
+                      src={cert.badge}
+                      alt=""
+                      width="96"
+                      height="96"
+                      loading="lazy"
+                    />
                   )}
                   <div className="cert-body">
                     {cert.url ? (
