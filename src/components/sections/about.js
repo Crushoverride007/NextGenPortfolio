@@ -90,6 +90,35 @@ const StyledText = styled.div`
       height: 100%;
       margin-bottom: 0;
       line-height: 1.5;
+      /* The issuer badge takes the marker's place, so drop the padding the
+         bullet needed and the bullet itself. */
+      padding-left: 0;
+
+      &:before {
+        content: none;
+      }
+    }
+
+    /* Badge and name share the first line; the name wraps under itself rather
+       than under the badge, which keeps multi-line titles readable. */
+    .cert-head {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+    }
+
+    .cert-badge {
+      flex: none;
+      width: 28px;
+      height: 28px;
+      object-fit: contain;
+      /* The theme blurs img[alt=""] as a prompt to write alt text. These are
+         genuinely decorative - the certificate name is right beside them - so
+         the empty alt is correct and the blur has to be opted out of. */
+      filter: none;
+      /* Issuer artwork varies in trim; a little optical nudge lines the
+         badges up with the first line of text. */
+      margin-top: -2px;
     }
 
     .cert-link {
@@ -221,26 +250,31 @@ const About = () => {
   const certs = [
     {
       name: 'AWS Certified DevOps Engineer – Professional',
+      badge: '/badges/aws-devops-pro.webp',
       url: 'https://www.credly.com/badges/1ab3330d-b823-44ee-b760-b10884d1c99d',
       credentialId: 'https://www.credly.com/badges/1ab3330d-b823-44ee-b760-b10884d1c99d'
     },
     {
       name: 'MS-102 - Microsoft 365 Certified: Administrator Expert',
+      badge: '/badges/ms-expert.svg',
       url: 'https://learn.microsoft.com/en-us/users/mouhcinemes/credentials/6ed84d7a5e99e1b3?ref=https%3A%2F%2Fwww.linkedin.com%2F',
       credentialId: 'https://learn.microsoft.com/en-us/users/mouhcinemes/credentials/6ed84d7a5e99e1b3?ref=https%3A%2F%2Fwww.linkedin.com%2F'
     },
     {
       name: 'AZ-104 - Microsoft Certified: Azure Administrator Associate',
+      badge: '/badges/ms-associate.svg',
       url: 'https://learn.microsoft.com/en-us/users/mouhcinemes/credentials/71f22fd4cdf5cb04?ref=https%3A%2F%2Fwww.linkedin.com%2F',
       credentialId: 'https://learn.microsoft.com/en-us/users/mouhcinemes/credentials/71f22fd4cdf5cb04?ref=https%3A%2F%2Fwww.linkedin.com%2F'
     },
     {
       name: 'SC-300 - Microsoft Certified: Identity and Access Administrator Associate',
+      badge: '/badges/ms-associate.svg',
       url: 'https://learn.microsoft.com/en-us/users/mouhcinemes/credentials/8f2d4ce8985d6d10?ref=https%3A%2F%2Fwww.linkedin.com%2F',
       credentialId: 'https://learn.microsoft.com/en-us/users/mouhcinemes/credentials/8f2d4ce8985d6d10?ref=https%3A%2F%2Fwww.linkedin.com%2F'
     },
     {
       name: 'Google Cybersecurity Professional',
+      badge: '/badges/google.svg',
       url: 'https://www.coursera.org/account/accomplishments/specialization/TGDR1HGETKXO',
       credentialId: 'https://www.coursera.org/account/accomplishments/specialization/TGDR1HGETKXO'
     }
@@ -319,13 +353,18 @@ const About = () => {
             <ul className="skills-list certs-list">
               {certs.map((cert, i) => (
                 <li key={i} className="cert-item">
-                  {cert.url ? (
-                    <a href={cert.url} target="_blank" rel="noopener noreferrer" className="cert-link">
-                      {cert.name}
-                    </a>
-                  ) : (
-                    <span className="cert-link">{cert.name}</span>
-                  )}
+                  <div className="cert-head">
+                    {cert.badge && (
+                      <img className="cert-badge" src={cert.badge} alt="" width="28" height="28" loading="lazy" />
+                    )}
+                    {cert.url ? (
+                      <a href={cert.url} target="_blank" rel="noopener noreferrer" className="cert-link">
+                        {cert.name}
+                      </a>
+                    ) : (
+                      <span className="cert-link">{cert.name}</span>
+                    )}
+                  </div>
                   {cert.credentialId && (
                     <a
                       href={cert.credentialId}
