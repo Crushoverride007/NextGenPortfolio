@@ -79,7 +79,7 @@ const StyledText = styled.div`
      other instead of each column flowing to its own rhythm. */
   ul.skills-list.certs-list {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
     gap: 22px 24px;
     column-width: auto;
 
@@ -114,8 +114,8 @@ const StyledText = styled.div`
 
     .cert-badge {
       flex: none;
-      width: 80px;
-      height: 80px;
+      width: 96px;
+      height: 96px;
       object-fit: contain;
       /* The theme blurs img[alt=""] as a prompt to write alt text. These are
          genuinely decorative - the certificate name is right beside them - so
@@ -359,7 +359,7 @@ const About = () => {
               {certs.map((cert, i) => (
                 <li key={i} className="cert-item">
                   {cert.badge && (
-                    <img className="cert-badge" src={cert.badge} alt="" width="80" height="80" loading="lazy" />
+                    <img className="cert-badge" src={cert.badge} alt="" width="96" height="96" loading="lazy" />
                   )}
                   <div className="cert-body">
                     {cert.url ? (
