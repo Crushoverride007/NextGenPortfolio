@@ -255,7 +255,7 @@ const About = () => {
   const certs = [
     {
       name: 'AWS Certified DevOps Engineer – Professional',
-      badge: '/badges/aws-devops-pro.webp',
+      badge: '/badges/aws-devops-pro-220a80ae.webp',
       url: 'https://www.credly.com/badges/1ab3330d-b823-44ee-b760-b10884d1c99d',
       credentialId: 'https://www.credly.com/badges/1ab3330d-b823-44ee-b760-b10884d1c99d'
     },
