@@ -220,6 +220,11 @@ const About = () => {
 
   const certs = [
     {
+      name: 'AWS Certified DevOps Engineer – Professional',
+      url: 'https://www.credly.com/badges/1ab3330d-b823-44ee-b760-b10884d1c99d',
+      credentialId: 'https://www.credly.com/badges/1ab3330d-b823-44ee-b760-b10884d1c99d'
+    },
+    {
       name: 'MS-102 - Microsoft 365 Certified: Administrator Expert',
       url: 'https://learn.microsoft.com/en-us/users/mouhcinemes/credentials/6ed84d7a5e99e1b3?ref=https%3A%2F%2Fwww.linkedin.com%2F',
       credentialId: 'https://learn.microsoft.com/en-us/users/mouhcinemes/credentials/6ed84d7a5e99e1b3?ref=https%3A%2F%2Fwww.linkedin.com%2F'
@@ -314,16 +319,22 @@ const About = () => {
             <ul className="skills-list certs-list">
               {certs.map((cert, i) => (
                 <li key={i} className="cert-item">
-                  <a href={cert.url} target="_blank" rel="noopener noreferrer" className="cert-link">
-                    {cert.name}
-                  </a>
-                  <a
-                    href={cert.credentialId}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="credential-link">
-                    📜 View Credential
-                  </a>
+                  {cert.url ? (
+                    <a href={cert.url} target="_blank" rel="noopener noreferrer" className="cert-link">
+                      {cert.name}
+                    </a>
+                  ) : (
+                    <span className="cert-link">{cert.name}</span>
+                  )}
+                  {cert.credentialId && (
+                    <a
+                      href={cert.credentialId}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="credential-link">
+                      📜 View Credential
+                    </a>
+                  )}
                 </li>
               ))}
             </ul>
