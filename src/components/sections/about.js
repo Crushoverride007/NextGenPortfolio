@@ -109,8 +109,8 @@ const StyledText = styled.div`
 
     .cert-badge {
       flex: none;
-      width: 28px;
-      height: 28px;
+      width: 44px;
+      height: 44px;
       object-fit: contain;
       /* The theme blurs img[alt=""] as a prompt to write alt text. These are
          genuinely decorative - the certificate name is right beside them - so
@@ -118,7 +118,7 @@ const StyledText = styled.div`
       filter: none;
       /* Issuer artwork varies in trim; a little optical nudge lines the
          badges up with the first line of text. */
-      margin-top: -2px;
+      margin-top: -8px;
     }
 
     .cert-link {
@@ -355,7 +355,7 @@ const About = () => {
                 <li key={i} className="cert-item">
                   <div className="cert-head">
                     {cert.badge && (
-                      <img className="cert-badge" src={cert.badge} alt="" width="28" height="28" loading="lazy" />
+                      <img className="cert-badge" src={cert.badge} alt="" width="44" height="44" loading="lazy" />
                     )}
                     {cert.url ? (
                       <a href={cert.url} target="_blank" rel="noopener noreferrer" className="cert-link">
